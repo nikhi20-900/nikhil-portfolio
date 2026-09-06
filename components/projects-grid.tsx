@@ -1,6 +1,6 @@
 "use client";
 
-import { Flame, ArrowUpRight, ArrowRight, KeyRound } from "lucide-react";
+import { Flame, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "./ui/icons";
 
 export function ProjectsGrid() {
@@ -116,55 +116,7 @@ export function ProjectsGrid() {
             <span className="text-xs font-mono text-[#9ba1a6]">SOFTWARE &amp; EXPERIMENTS</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Forge Card */}
-            <div
-              className="p-7 rounded-2xl bg-[#11141d] border border-orange-500/30 hover:border-orange-500/60 transition-all flex flex-col justify-between"
-              data-project-card="true"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-mono text-orange-400 bg-orange-950/40 px-2.5 py-0.5 rounded-full border border-orange-800/40 font-bold">
-                    BUILDING
-                  </span>
-                  <span className="text-[10px] font-mono text-[#9ba1a6]">Featured Tool</span>
-                </div>
-
-                <h4 className="text-2xl font-bold text-[#f5f4ef] mb-1">FORGE</h4>
-                <div className="text-xs font-mono text-orange-400 mb-3">
-                  AI Software Engineering Agent
-                </div>
-                <p className="text-sm text-[#9ba1a6] leading-relaxed mb-6 font-light">
-                  An AI-assisted developer tool designed to help plan, analyze, code, test, debug,
-                  and review software directly from the terminal.
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {["AI Agents", "Automation", "CLI", "Developer Tooling"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 text-[11px] font-mono bg-white/[0.03] text-[#f5f4ef] rounded border border-white/[0.06]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
-                <a
-                  href="#forge"
-                  className="inline-flex items-center gap-1 text-xs font-mono text-[#f5f4ef] hover:text-orange-400 font-semibold"
-                >
-                  <span>View Case Study</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-                <span className="text-[11px] font-mono text-[#9ba1a6]">
-                  Prototype Active
-                </span>
-              </div>
-            </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* MedTech */}
             <div
               className="p-7 rounded-2xl bg-[#11141d] border border-white/[0.08] hover:border-white/[0.18] transition-all flex flex-col justify-between"
@@ -293,37 +245,6 @@ export function ProjectsGrid() {
                   <span>Repository</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
-              </div>
-            </div>
-
-            {/* Cryptography Toolkit */}
-            <div
-              className="p-7 rounded-2xl bg-[#11141d] border border-white/[0.08] hover:border-white/[0.18] transition-all flex flex-col justify-between md:col-span-2 lg:col-span-1"
-              data-project-card="true"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-mono text-purple-400 bg-purple-950/30 px-2.5 py-0.5 rounded-full border border-purple-800/40">
-                    Algorithms &amp; Logic
-                  </span>
-                  <KeyRound className="w-4 h-4 text-[#9ba1a6]" />
-                </div>
-
-                <h4 className="text-2xl font-bold text-[#f5f4ef] mb-2">
-                  Cryptography Toolkit
-                </h4>
-                <p className="text-sm text-[#9ba1a6] leading-relaxed mb-6 font-light">
-                  A programming project implementing classical encryption and decryption
-                  techniques including Caesar Cipher and Playfair Cipher in Python, exploring
-                  string manipulation and algorithmic problem solving.
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
-                <span className="text-xs font-mono text-[#9ba1a6]">
-                  Python · Ciphers · Logic
-                </span>
-                <span className="text-xs font-mono text-[#9ba1a6]">Algorithmic</span>
               </div>
             </div>
           </div>

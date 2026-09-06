@@ -86,8 +86,8 @@ const TOOLS_DATA: ToolItem[] = [
     category: "build",
     categoryLabel: "BUILD",
     status: "Used in",
-    usage: "NAVIGEN autonomous nodes & Cryptography Toolkit ciphers",
-    connectedProjects: ["NAVIGEN UGV", "Cryptography Toolkit"],
+    usage: "NAVIGEN autonomous nodes & trajectory calculation",
+    connectedProjects: ["NAVIGEN UGV"],
   },
 
   // 2. AI & AUTOMATION
