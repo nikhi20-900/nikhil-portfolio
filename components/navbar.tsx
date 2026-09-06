@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { GithubIcon } from "./ui/icons";
+import { GithubIcon, LinkedinIcon } from "./ui/icons";
 
 const NAV_ITEMS = [
   { label: "Lab", href: "#lab" },
@@ -97,8 +97,20 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Action Button: GitHub */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Action Buttons: LinkedIn & GitHub */}
+        <div className="hidden md:flex items-center gap-2">
+          <a
+            href="https://www.linkedin.com/in/nikhil-chhetri-115747284/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono text-[#f5f4ef] bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] transition-all"
+            title="LinkedIn Profile"
+          >
+            <LinkedinIcon className="w-3.5 h-3.5 text-blue-400" />
+            <span className="hidden lg:inline">LinkedIn</span>
+            <ArrowUpRight className="w-3 h-3 text-[#9ba1a6]" />
+          </a>
+
           <a
             href="https://github.com/nikhi20-900"
             target="_blank"
@@ -146,14 +158,30 @@ export function Navbar() {
                   {item.label}
                 </a>
               ))}
-              <div className="pt-3 border-t border-white/[0.08]">
+              <div className="pt-3 border-t border-white/[0.08] flex flex-col gap-2">
+                <a
+                  href="https://www.linkedin.com/in/nikhil-chhetri-115747284/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between py-1.5 text-xs text-[#f5f4ef]"
+                >
+                  <span className="flex items-center gap-2">
+                    <LinkedinIcon className="w-3.5 h-3.5 text-blue-400" />
+                    <span>LinkedIn Profile</span>
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-[#9ba1a6]" />
+                </a>
+
                 <a
                   href="https://github.com/nikhi20-900"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between py-2 text-xs text-[#f5f4ef]"
+                  className="flex items-center justify-between py-1.5 text-xs text-[#f5f4ef]"
                 >
-                  <span>github.com/nikhi20-900</span>
+                  <span className="flex items-center gap-2">
+                    <GithubIcon className="w-3.5 h-3.5" />
+                    <span>github.com/nikhi20-900</span>
+                  </span>
                   <ArrowUpRight className="w-4 h-4 text-[#9ba1a6]" />
                 </a>
               </div>

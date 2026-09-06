@@ -14,8 +14,8 @@ export function Contact() {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
-  const copyLinkedinPlaceholder = () => {
-    navigator.clipboard.writeText("YOUR_LINKEDIN_HERE");
+  const copyLinkedin = () => {
+    navigator.clipboard.writeText("https://www.linkedin.com/in/nikhil-chhetri-115747284/");
     setCopiedLinkedin(true);
     setTimeout(() => setCopiedLinkedin(false), 2500);
   };
@@ -112,7 +112,7 @@ export function Contact() {
               </a>
             </div>
 
-            {/* LinkedIn (Placeholder) */}
+            {/* LinkedIn */}
             <div className="p-5 rounded-2xl bg-[#0a0c12] border border-white/[0.08] flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#9ba1a6]">
@@ -121,9 +121,9 @@ export function Contact() {
                     <span>LINKEDIN</span>
                   </span>
                   <button
-                    onClick={copyLinkedinPlaceholder}
+                    onClick={copyLinkedin}
                     className="hover:text-[#f5f4ef] transition-colors"
-                    title="Copy LinkedIn placeholder"
+                    title="Copy LinkedIn URL"
                   >
                     {copiedLinkedin ? (
                       <Check className="w-3.5 h-3.5 text-emerald-400" />
@@ -133,16 +133,19 @@ export function Contact() {
                   </button>
                 </div>
                 <div className="text-sm font-mono font-bold text-[#f5f4ef] break-all mb-4">
-                  YOUR_LINKEDIN_HERE
+                  linkedin.com/in/nikhil-chhetri-115747284
                 </div>
               </div>
 
-              <button
-                onClick={copyLinkedinPlaceholder}
-                className="inline-flex items-center gap-1 text-xs font-mono text-[#9ba1a6] hover:text-[#f5f4ef] text-left"
+              <a
+                href="https://www.linkedin.com/in/nikhil-chhetri-115747284/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs font-mono text-blue-400 hover:underline"
               >
-                <span>{copiedLinkedin ? "Copied placeholder" : "Copy placeholder"}</span>
-              </button>
+                <span>Connect on LinkedIn</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
 
@@ -163,6 +166,16 @@ export function Contact() {
               data-cursor="code"
             >
               Check GitHub
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/nikhil-chhetri-115747284/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 rounded-full bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 font-mono text-xs sm:text-sm font-medium transition-all flex items-center gap-2"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+              <span>Connect on LinkedIn</span>
             </a>
           </div>
         </div>

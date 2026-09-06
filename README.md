@@ -106,3 +106,4 @@ npm run start
 
 - **Email**: [nikhil142004@gmail.com](mailto:nikhil142004@gmail.com)
 - **GitHub**: [https://github.com/nikhi20-900](https://github.com/nikhi20-900)
+- **LinkedIn**: [https://www.linkedin.com/in/nikhil-chhetri-115747284/](https://www.linkedin.com/in/nikhil-chhetri-115747284/)

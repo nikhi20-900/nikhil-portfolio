@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUp } from "lucide-react";
-import { GithubIcon } from "./ui/icons";
+import { GithubIcon, LinkedinIcon } from "./ui/icons";
 
 export function Footer() {
   const scrollToTop = () => {
@@ -32,6 +32,18 @@ export function Footer() {
             >
               <GithubIcon className="w-3.5 h-3.5" />
               <span>GitHub</span>
+            </a>
+
+            <span className="text-white/[0.2]">/</span>
+
+            <a
+              href="https://www.linkedin.com/in/nikhil-chhetri-115747284/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono text-[#9ba1a6] hover:text-[#f5f4ef] transition-colors flex items-center gap-1.5"
+            >
+              <LinkedinIcon className="w-3.5 h-3.5 text-blue-400" />
+              <span>LinkedIn</span>
             </a>
 
             <span className="text-white/[0.2]">/</span>
