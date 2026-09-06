@@ -1,5 +1,7 @@
 # Nikhil Chhetri — Personal Portfolio
 
+> 🌐 **Live Website**: [https://nikhil-portfolio-rose.vercel.app](https://nikhil-portfolio-rose.vercel.app)
+
 Personal portfolio website showcasing my work across frontend development, AI-assisted development, robotics, IoT, and developer tooling.
 
 Designed and engineered with an editorial aesthetic, deliberate visual hierarchy, interactive workflows, and high-performance frontend architecture.
