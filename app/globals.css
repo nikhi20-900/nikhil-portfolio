@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0d0f14;
+  --foreground: #f5f4ef;
+  --surface-1: #13161c;
+  --surface-2: #1a1e26;
+  --surface-border: rgba(245, 244, 239, 0.08);
+  --accent-terracotta: #ea580c;
+  --accent-terracotta-light: #f97316;
+  --accent-sage: #84a98c;
+  --accent-sand: #d4a373;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(234, 88, 12, 0.3);
+  color: #ffffff;
+}
+
+/* Custom editorial scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0f14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232833;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #363d4d;
+}
+
+/* Subtle warm architectural grid */
+.editorial-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(245, 244, 239, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 244, 239, 0.025) 1px, transparent 1px);
+}
+
+/* Editorial subtle borders */
+.border-subtle {
+  border-color: rgba(245, 244, 239, 0.09);
+}
+
+.border-subtle-hover:hover {
+  border-color: rgba(245, 244, 239, 0.22);
+}
+
+/* Refined typography helper */
+.editorial-lead {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }

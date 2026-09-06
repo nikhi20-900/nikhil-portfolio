@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nikhil Chhetri — Personal Portfolio
 
-## Getting Started
+Personal portfolio website showcasing my work across frontend development, AI-assisted development, robotics, IoT, and developer tooling.
 
-First, run the development server:
+Designed and engineered with an editorial aesthetic, deliberate visual hierarchy, interactive workflows, and high-performance frontend architecture.
+
+---
+
+## 👨‍💻 About
+
+I am a Bachelor of Computer Applications (BCA) student at Dayananda Sagar University (DSU), Bangalore, building real-world applications, intelligent systems, and developer tools through code, robotics, and modern AI workflows.
+
+I approach modern AI tooling, agents, and terminal automation as **force multipliers** for software development — accelerating rapid prototyping and iteration while maintaining deep understanding of the code.
+
+---
+
+## 🚀 Featured Projects
+
+### 1. NAVIGEN
+**Vision Based Autonomous Navigation for Unmanned Ground Vehicle for Outdoor Environment**
+- Developed for **Smart India Hackathon 2025**.
+- Combines robotics, computer vision, and autonomous navigation to enable an outdoor ground vehicle to perceive terrain, segment obstacles, and plan collision-free trajectories under real physical constraints.
+- **Technologies Used**: ROS 2, Python, Raspberry Pi, ESP32, OpenCV / Computer Vision, Gazebo.
+
+### 2. Forge
+**AI Software Engineering Agent**
+- An AI-assisted developer tool designed to help plan, analyze, code, test, debug, and review software directly from the terminal.
+- Features an 8-stage execution pipeline (`TASK → PLAN → INSPECT → CODE → TEST → DEBUG → REVIEW → DONE`) and a tactile developer CLI interface.
+- **Technologies Used**: CLI Tooling, TypeScript, Node.js, AI/LLM APIs, Git *(Active Local Prototype)*.
+
+### 3. LPG Gas Leakage Dashboard
+**Real-Time IoT Dashboard for Monitoring Gas Leakage and Automatic Shutoff**
+- Streams real-time telemetry from physical MQ-6 sensors to visualize gas concentration levels, solenoid valve status, and emergency threshold alerts.
+- **Technologies Used**: React, Vite, Tailwind CSS, Firebase Realtime Database, Recharts, Framer Motion.
+
+---
+
+## 🛠️ Portfolio Tech Stack
+
+The portfolio itself is built with:
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
+- **Library**: [React 19](https://react.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations & Micro-interactions**: [Framer Motion](https://motion.dev/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+
+---
+
+## 🎨 Design System & Art Direction
+
+- **Editorial Design**: Warm charcoal palette (`#0d0f14`), tactile linen (`#f5f4ef`), terracotta accents (`#f97316`), and muted sage (`#84a98c`) with strong typographic contrast.
+- **Precise Visual Hierarchy**: 5 deliberate levels of attention, orientation, story, interaction, and micro details.
+- **Scroll-Based Storytelling**: Alternating rhythm between dense technical showcases (perception pipelines, terminal visuals) and quiet editorial moments (signature philosophy).
+- **Interaction-Driven UX**: Tactile terminal trace simulator, interactive 8-stage workflow inspector, and responsive technology ecosystem map.
+- **Accessibility & Performance**: Semantic HTML5 hierarchy, keyboard navigation, full support for `prefers-reduced-motion`, and zero-layout-shift static prerendering.
+
+---
+
+## 💻 Running Locally
+
+To run this website locally on your machine:
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/nikhi20-900/nikhil-portfolio.git
+
+# 2. Navigate to the project directory
+cd nikhil-portfolio
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the local development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the portfolio.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏗️ Production Build
 
-## Learn More
+To build and test the optimized production bundle:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Build production bundle with Next.js Turbopack
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Start the production server locally
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📬 Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Email**: [nikhil142004@gmail.com](mailto:nikhil142004@gmail.com)
+- **GitHub**: [https://github.com/nikhi20-900](https://github.com/nikhi20-900)
