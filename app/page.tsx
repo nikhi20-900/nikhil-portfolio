@@ -5,6 +5,7 @@ import { NavigenFeatured } from "@/components/navigen-featured";
 import { SignatureStatement } from "@/components/signature-statement";
 import { ToolsMap } from "@/components/tools-map";
 import { ForgeFeatured } from "@/components/forge-featured";
+import { PulseFeatured } from "@/components/pulse-featured";
 import { ProjectsGrid } from "@/components/projects-grid";
 import { ModernWorkflows } from "@/components/modern-workflows";
 import { HowIBuild } from "@/components/how-i-build";
@@ -45,7 +46,10 @@ export default function Home() {
         {/* 6. FORGE — DENSE: Standout Featured Project 02 (AI Engineering, 8-step pipeline, terminal) */}
         <ForgeFeatured />
 
-        {/* 7. PROJECTS COLLECTION — DENSE: LPG Dashboard (03) + Archive projects */}
+        {/* 7. PULSE — DENSE: Standout Featured Project 03 (Full-Stack / Real-Time Collaborative Workspace) */}
+        <PulseFeatured />
+
+        {/* 8. PROJECTS COLLECTION — DENSE: LPG Dashboard (04) + Archive projects */}
         <ProjectsGrid />
 
         {/* 8. MODERN DEVELOPER TOOLING: AI, Agents & CLI Fluency */}

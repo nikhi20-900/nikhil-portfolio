@@ -30,7 +30,13 @@ I approach modern AI tooling, agents, and terminal automation as **force multipl
 - Features an 8-stage execution pipeline (`TASK → PLAN → INSPECT → CODE → TEST → DEBUG → REVIEW → DONE`) and a tactile developer CLI interface.
 - **Technologies Used**: CLI Tooling, TypeScript, Node.js, AI/LLM APIs, Git *(Active Local Prototype)*.
 
-### 3. LPG Gas Leakage Dashboard
+### 3. Pulse
+**Real-Time Collaborative Workspace**
+- A full-stack collaborative workspace where teams manage projects, tasks, documents, and live activity together in real time.
+- Explores real-time state, optimistic UI updates, WebSocket synchronization, presence telemetry, and collaborative conflict handling *(Currently Building / In Development)*.
+- **Technologies Explored**: Next.js, React, WebSockets, Database / Schema, Product UX.
+
+### 4. LPG Gas Leakage Dashboard
 **Real-Time IoT Dashboard for Monitoring Gas Leakage and Automatic Shutoff**
 - Streams real-time telemetry from physical MQ-6 sensors to visualize gas concentration levels, solenoid valve status, and emergency threshold alerts.
 - **Technologies Used**: React, Vite, Tailwind CSS, Firebase Realtime Database, Recharts, Framer Motion.

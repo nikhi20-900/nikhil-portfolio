@@ -8,7 +8,7 @@ export function ProjectsGrid() {
     <section id="projects" className="py-24 md:py-36 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* ========================================================================= */}
-        {/* 3. THIRD MAJOR FEATURE: LPG GAS LEAKAGE DASHBOARD */}
+        {/* 4. FOURTH MAJOR FEATURE: LPG GAS LEAKAGE DASHBOARD */}
         {/* ========================================================================= */}
         <div
           id="lpg"
@@ -17,7 +17,7 @@ export function ProjectsGrid() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest mb-3 flex items-center gap-2">
-                <span className="text-amber-400 font-bold">03 /</span>
+                <span className="text-amber-400 font-bold">04 /</span>
                 <span>REAL-TIME IOT &amp; DASHBOARD</span>
               </div>
 
@@ -105,12 +105,12 @@ export function ProjectsGrid() {
         </div>
 
         {/* ========================================================================= */}
-        {/* 4. OTHER PROJECTS & EXPLORATIONS COLLECTION */}
+        {/* 5. OTHER PROJECTS & EXPLORATIONS COLLECTION */}
         {/* ========================================================================= */}
         <div>
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/[0.08]">
             <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest flex items-center gap-2">
-              <span className="text-orange-400 font-bold">04 /</span>
+              <span className="text-orange-400 font-bold">05 /</span>
               <span>PROJECTS COLLECTION</span>
             </div>
             <span className="text-xs font-mono text-[#9ba1a6]">SOFTWARE &amp; EXPERIMENTS</span>

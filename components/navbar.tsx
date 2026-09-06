@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { label: "Navigen", href: "#navigen" },
   { label: "Tools", href: "#tools" },
   { label: "Forge", href: "#forge" },
+  { label: "Pulse", href: "#pulse" },
   { label: "Projects", href: "#projects" },
   { label: "Workflow", href: "#process" },
   { label: "Contact", href: "#contact" },

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Bot, Wifi, Layers, Terminal, type LucideIcon } from "lucide-react";
+import { ArrowRight, Bot, Wifi, Layers, Terminal, Users, type LucideIcon } from "lucide-react";
 
 interface LabItem {
   id: string;
@@ -68,6 +68,19 @@ const LAB_ITEMS: LabItem[] = [
     details:
       "Building a developer tool that explores how AI agents can participate in real software engineering workflows.",
     icon: Terminal,
+  },
+  {
+    id: "pulse",
+    number: "05",
+    title: "PULSE",
+    techs: ["Next.js", "React", "Realtime", "Database", "Product UX"],
+    status: "BUILDING",
+    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    description:
+      "REAL-TIME COLLABORATIVE WORKSPACE — Exploring real-time collaboration, shared state, and full-stack product architecture.",
+    details:
+      "A workspace where teams manage projects, tasks, documents, and discussions together in real time. Exploring optimistic UI, WebSocket sync, and collaborative state.",
+    icon: Users,
   },
 ];
 
