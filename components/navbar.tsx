@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   { label: "Forge", href: "#forge" },
   { label: "Pulse", href: "#pulse" },
   { label: "Projects", href: "#projects" },
-  { label: "Workflow", href: "#process" },
+  { label: "Notes", href: "#notes" },
   { label: "Contact", href: "#contact" },
 ];
 

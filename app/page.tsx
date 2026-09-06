@@ -3,16 +3,18 @@ import { Hero } from "@/components/hero";
 import { BuildersLab } from "@/components/builders-lab";
 import { NavigenFeatured } from "@/components/navigen-featured";
 import { SignatureStatement } from "@/components/signature-statement";
+import { ChapterTransition } from "@/components/ui/chapter-transition";
 import { ToolsMap } from "@/components/tools-map";
 import { ForgeFeatured } from "@/components/forge-featured";
 import { PulseFeatured } from "@/components/pulse-featured";
 import { ProjectsGrid } from "@/components/projects-grid";
-import { ModernWorkflows } from "@/components/modern-workflows";
+import { ThingsThatBroke } from "@/components/things-that-broke";
+import { BuildNotes } from "@/components/build-notes";
 import { HowIBuild } from "@/components/how-i-build";
 import { Hackathons } from "@/components/hackathons";
 import { GithubEvidence } from "@/components/github-evidence";
 import { Education } from "@/components/education";
-import { BeyondCode } from "@/components/beyond-code";
+import { TerminalEasterEgg } from "@/components/terminal-easter-egg";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { CustomCursor } from "@/components/ui/custom-cursor";
@@ -26,51 +28,84 @@ export default function Home() {
       {/* Sticky editorial navbar */}
       <Navbar />
 
-      {/* Deliberate Visual Rhythm & Storytelling Progression */}
+      {/* Deliberate Visual Rhythm & Continuous Storytelling Flow */}
       <div className="relative z-10 flex flex-col">
-        {/* 1. HERO — QUIET: High contrast, massive headline, generous whitespace */}
+        {/* 1. HERO — High contrast, massive headline, generous whitespace */}
         <Hero />
 
-        {/* 2. BUILDER'S LAB — DENSE: Interactive accordion prototypes (45-65% inactive focus) */}
+        {/* 2. BUILDER'S LAB — Interactive accordion prototypes */}
         <BuildersLab />
 
-        {/* 3. NAVIGEN — DENSE: Standout Featured Project 01 (Robotics, perception pipeline) */}
+        {/* 3. NAVIGEN — Standout Featured Project 01 (Robotics, perception pipeline) */}
         <NavigenFeatured />
 
-        {/* 4. SIGNATURE STATEMENT — QUIET: Visual Bridge (Typography-first, no card box) */}
+        {/* Signature Philosophy Bridge */}
         <SignatureStatement />
 
-        {/* 5. TOOLS I BUILD WITH — DENSE: Exploratory matrix, active node inspector */}
+        {/* CHAPTER TRANSITION 1: HARDWARE → SOFTWARE */}
+        <ChapterTransition
+          fromNumber="01"
+          fromTitle="ROBOTICS / NAVIGEN"
+          toNumber="02"
+          toTitle="THE STACK / TOOLS"
+          statement="From physical motor loops to the software stack that drives them."
+          substatement="Hardware, sensors, and firmware connect into languages, libraries, and architecture."
+        />
+
+        {/* 4. TOOLS I BUILD WITH — Exploratory matrix & verified technologies */}
         <ToolsMap />
 
-        {/* 6. FORGE — DENSE: Standout Featured Project 02 (AI Engineering, 8-step pipeline, terminal) */}
+        {/* CHAPTER TRANSITION 2: CODE → AGENTS */}
+        <ChapterTransition
+          fromNumber="02"
+          fromTitle="THE STACK"
+          toNumber="03"
+          toTitle="AI AGENTS / FORGE"
+          statement="From writing code manually to orchestrating agents in the terminal."
+          substatement="Developer tooling and AI workflows act as force multipliers for rapid prototyping."
+        />
+
+        {/* 5. FORGE — Standout Featured Project 02 (AI Engineering, 8-step pipeline, terminal) */}
         <ForgeFeatured />
 
-        {/* 7. PULSE — DENSE: Standout Featured Project 03 (Full-Stack / Real-Time Collaborative Workspace) */}
+        {/* CHAPTER TRANSITION 3: LOCAL → COLLABORATIVE */}
+        <ChapterTransition
+          fromNumber="03"
+          fromTitle="DEVELOPER CLI / FORGE"
+          toNumber="04"
+          toTitle="REAL-TIME PRODUCT / PULSE"
+          statement="From single-developer tools to real-time multiplayer products."
+          substatement="Where multiple people, shared state, and live synchronization meet."
+        />
+
+        {/* 6. PULSE — Standout Featured Project 03 (Full-Stack / Real-Time Collaborative Workspace) */}
         <PulseFeatured />
 
-        {/* 8. PROJECTS COLLECTION — DENSE: LPG Dashboard (04) + Archive projects */}
+        {/* 7. PROJECTS COLLECTION — LPG Dashboard (04) + Archive projects (05) */}
         <ProjectsGrid />
 
-        {/* 8. MODERN DEVELOPER TOOLING: AI, Agents & CLI Fluency */}
-        <ModernWorkflows />
+        {/* 8. THINGS THAT BROKE — Honest Engineering Autopsies */}
+        <ThingsThatBroke />
 
-        {/* 9. HOW I BUILD — MEDIUM: Moving focal point (active dominant, past/future muted) */}
+        {/* 9. BUILD NOTES — Things I'm Currently Figuring Out */}
+        <BuildNotes />
+
+        {/* 10. HOW I BUILD — 5 Steps to Shipping */}
         <HowIBuild />
 
-        {/* 10. BUILT UNDER PRESSURE — DENSE: Hackathons & Pressure Sprints */}
+        {/* 11. BUILT UNDER PRESSURE — Hackathons & Pressure Sprints */}
         <Hackathons />
 
-        {/* 11. DON'T TAKE MY WORD FOR IT — MEDIUM: GitHub Evidence & Commits */}
+        {/* 12. SOURCE CODE — GitHub Evidence & Commits */}
         <GithubEvidence />
 
-        {/* 12. EDUCATION & LEARNING — MEDIUM: Academic foundations & active learning */}
+        {/* 13. EDUCATION — Foundations & Active Learning */}
         <Education />
 
-        {/* 13. BEYOND THE CODE — QUIET: Human builder ethos */}
-        <BeyondCode />
+        {/* 14. TERMINAL EASTER EGG — Interactive CLI */}
+        <TerminalEasterEgg />
 
-        {/* 14. CONTACT / FINALE — QUIET: Direct channels & final call to action */}
+        {/* 15. LET'S BUILD / CONTACT — Direct channels & final call to action */}
         <Contact />
       </div>
 

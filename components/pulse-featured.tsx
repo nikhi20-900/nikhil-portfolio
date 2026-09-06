@@ -280,14 +280,16 @@ export function PulseFeatured() {
           <div className="text-xs font-mono text-[#f97316] uppercase tracking-widest flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#f97316] animate-pulse" />
             <span className="font-bold">03 /</span>
-            <span>FULL-STACK / REAL-TIME PRODUCT</span>
+            <span>PULSE / BUILDING</span>
           </div>
           <div className="flex items-center gap-2 font-mono text-xs">
             <span className="px-3 py-0.5 rounded-full bg-[#f97316]/10 text-[#f97316] border border-[#f97316]/30 font-bold flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#f97316]" />
               BUILDING
             </span>
-            <span className="text-[#9ba1a6] hidden sm:inline">Active Exploration</span>
+            <span className="px-2.5 py-0.5 rounded bg-white/[0.04] text-[#9ba1a6] border border-white/[0.08]">
+              Concept / active build
+            </span>
           </div>
         </div>
 
@@ -295,9 +297,14 @@ export function PulseFeatured() {
         {/* 2. HEADLINE & EDITORIAL POSITIONING (Level 01) */}
         {/* ========================================================================= */}
         <div className="max-w-4xl mb-12">
-          <h2 className="text-5xl sm:text-7xl md:text-8xl font-black text-[#f5f4ef] tracking-tighter leading-[0.95] mb-4">
-            PULSE
-          </h2>
+          <div className="flex flex-wrap items-baseline gap-4 mb-2">
+            <h2 className="text-5xl sm:text-7xl md:text-8xl font-black text-[#f5f4ef] tracking-tighter leading-[0.95]">
+              PULSE
+            </h2>
+            <span className="text-xs font-mono uppercase px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-bold">
+              ILLUSTRATIVE PROTOTYPE
+            </span>
+          </div>
           <p className="text-xl sm:text-2xl md:text-3xl text-[#f97316] font-bold tracking-tight mb-4">
             Real-Time Collaborative Workspace
           </p>
@@ -333,8 +340,9 @@ export function PulseFeatured() {
             </div>
 
             {/* Authenticity Disclaimer Tag */}
-            <div className="text-[10px] font-mono text-[#9ba1a6] uppercase tracking-wider px-2.5 py-1 rounded bg-white/[0.04] border border-white/[0.08]">
-              * Interactive Functional Prototype
+            <div className="text-[10px] font-mono text-amber-400 uppercase tracking-wider px-2.5 py-1 rounded bg-amber-950/20 border border-amber-800/40 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+              <span>ILLUSTRATIVE · Concept Prototype</span>
             </div>
           </div>
 
@@ -394,7 +402,7 @@ export function PulseFeatured() {
                     </span>
                   </div>
                   <span className="text-[10px] font-mono text-[#84a98c] bg-[#84a98c]/10 px-2 py-0.5 rounded border border-[#84a98c]/20">
-                    2 Present
+                    2 Present (ILLUSTRATIVE)
                   </span>
                 </div>
 
@@ -439,7 +447,7 @@ export function PulseFeatured() {
                 </div>
 
                 <div className="pt-2 text-[10px] font-mono text-[#9ba1a6]/70 leading-relaxed border-t border-white/[0.06]">
-                  * Ephemeral presence detection updates automatically as you switch views.
+                  * Ephemeral presence detection mockup — ILLUSTRATIVE prototype.
                 </div>
               </div>
 
@@ -448,7 +456,7 @@ export function PulseFeatured() {
                 <div className="flex items-center justify-between text-[11px]">
                   <span className="text-[#9ba1a6]">Simulate Mutation:</span>
                   <span className="text-[#f97316] text-[10px] uppercase font-bold">
-                    Real-Time Event
+                    ILLUSTRATIVE EVENT
                   </span>
                 </div>
                 <button
@@ -1009,7 +1017,7 @@ export function PulseFeatured() {
               </h4>
             </div>
             <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#f97316]/10 text-[#f97316] border border-[#f97316]/30 self-start sm:self-auto">
-              PLANNED ARCHITECTURE
+              PLANNED ARCHITECTURE · EXPLORING
             </span>
           </div>
 
