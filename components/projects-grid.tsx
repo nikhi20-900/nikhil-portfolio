@@ -1,23 +1,186 @@
 "use client";
 
-import { Flame, ArrowUpRight } from "lucide-react";
+import {
+  Flame,
+  ArrowUpRight,
+  Bot,
+  Terminal,
+  Users,
+  BookOpen,
+  Boxes,
+} from "lucide-react";
 import { GithubIcon } from "./ui/icons";
+
+const FLAGSHIP_ARCHIVE = [
+  {
+    id: "navigen",
+    number: "01",
+    title: "NAVIGEN",
+    subtitle: "Robotics & Perception Pipeline",
+    concept: "Vision-based autonomous navigation for unmanned ground vehicles.",
+    flow: "CAMERA → PERCEPTION → DECISION → MOTOR",
+    status: "BUILT",
+    statusDetail: "SIH 2025",
+    statusColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
+    techs: ["ROS 2", "OpenCV", "Raspberry Pi", "ESP32", "Nav2", "Gazebo"],
+    anchor: "#navigen",
+    icon: Bot,
+  },
+  {
+    id: "forge",
+    number: "02",
+    title: "FORGE",
+    subtitle: "AI Software Engineering Agent",
+    concept: "CLI agent that plans, analyzes, codes, and verifies software with directory grounding.",
+    flow: "TASK → PLAN → INSPECT → CODE → TEST → REVIEW",
+    status: "BUILDING",
+    statusDetail: "Active CLI Prototype",
+    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    techs: ["CLI Tooling", "TypeScript", "Node.js", "AI APIs", "Git"],
+    anchor: "#forge",
+    icon: Terminal,
+  },
+  {
+    id: "pulse",
+    number: "03",
+    title: "PULSE",
+    subtitle: "Real-Time Collaborative Workspace",
+    concept: "Multiplayer full-stack workspace exploring shared state, presence, and CRDT sync.",
+    flow: "STATE → SYNC → PRESENCE → CONFLICTS",
+    status: "BUILDING",
+    statusDetail: "Illustrative Prototype",
+    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    techs: ["Next.js", "React", "WebSockets", "Database Schema", "Product UX"],
+    anchor: "#pulse",
+    icon: Users,
+  },
+  {
+    id: "atlas",
+    number: "04",
+    title: "ATLAS",
+    subtitle: "AI / RAG / Knowledge Systems",
+    concept: "A knowledge workspace exploring document ingestion, vector retrieval, and evidence-first answers.",
+    flow: "DOCUMENTS → RETRIEVE → EVIDENCE",
+    status: "BUILDING",
+    statusDetail: "Concept / RAG Prototype",
+    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    techs: ["RAG", "Embeddings", "Vector Search", "Grounded Context", "Attribution"],
+    anchor: "#atlas",
+    icon: BookOpen,
+  },
+  {
+    id: "nexus",
+    number: "05",
+    title: "NEXUS",
+    subtitle: "DevOps / Automation / Infrastructure",
+    concept: "Operational control connecting repositories, test gates, builds, deployments, and telemetry.",
+    flow: "CODE → BUILD → DEPLOY → MONITOR",
+    status: "BUILDING",
+    statusDetail: "Concept / Simulated CI/CD",
+    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    techs: ["CI/CD", "Turbopack", "Test Gates", "Edge Rollout", "Observability"],
+    anchor: "#nexus",
+    icon: Boxes,
+  },
+];
 
 export function ProjectsGrid() {
   return (
     <section id="projects" className="py-24 md:py-36 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 space-y-24">
         {/* ========================================================================= */}
-        {/* 4. FOURTH MAJOR FEATURE: LPG GAS LEAKAGE DASHBOARD */}
+        {/* 1. FLAGSHIP PROJECT INDEX (01 TO 05) */}
+        {/* ========================================================================= */}
+        <div>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-4 border-b border-white/[0.08]">
+            <div>
+              <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest flex items-center gap-2 mb-1">
+                <span className="text-orange-400 font-bold">INDEX /</span>
+                <span>FLAGSHIP SYSTEMS</span>
+              </div>
+              <h3 className="text-3xl sm:text-4xl font-black text-[#f5f4ef] tracking-tight">
+                THE FIVE FLAGSHIPS
+              </h3>
+            </div>
+            <span className="text-xs font-mono text-[#9ba1a6]">
+              BUILT &amp; ACTIVE ARCHITECTURAL BUILDS
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {FLAGSHIP_ARCHIVE.map((proj) => {
+              const Icon = proj.icon;
+              return (
+                <div
+                  key={proj.id}
+                  className="p-6 rounded-2xl bg-[#11141d] border border-white/[0.08] hover:border-white/[0.18] transition-all flex flex-col justify-between space-y-5"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-xs font-bold text-orange-400">
+                          {proj.number}
+                        </span>
+                        <span className="text-white/20">/</span>
+                        <Icon className="w-3.5 h-3.5 text-orange-400" />
+                        <span className="font-mono text-xs font-bold text-[#f5f4ef]">
+                          {proj.title}
+                        </span>
+                      </div>
+                      <span
+                        className={`text-[9px] font-mono uppercase px-2 py-0.5 rounded border font-bold ${proj.statusColor}`}
+                      >
+                        {proj.status}
+                      </span>
+                    </div>
+
+                    <div>
+                      <div className="text-xs font-mono text-[#9ba1a6] mb-1">
+                        {proj.subtitle}
+                      </div>
+                      <p className="text-xs text-[#f5f4ef]/90 leading-relaxed font-light">
+                        {proj.concept}
+                      </p>
+                    </div>
+
+                    <div className="p-2.5 rounded-xl bg-[#090b10] border border-white/[0.04] text-[10px] font-mono text-orange-400 font-medium">
+                      {proj.flow}
+                    </div>
+                  </div>
+
+                  <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+                    <div className="flex flex-wrap gap-1 text-[9px] font-mono text-[#9ba1a6]">
+                      {proj.techs.slice(0, 3).map((t) => (
+                        <span key={t} className="px-1.5 py-0.5 rounded bg-white/[0.02]">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <a
+                      href={proj.anchor}
+                      className="inline-flex items-center gap-1 text-xs font-mono text-orange-400 hover:text-white transition-colors"
+                    >
+                      <span>Explore</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ========================================================================= */}
+        {/* 2. ADDITIONAL BUILD: LPG GAS LEAKAGE DASHBOARD */}
         {/* ========================================================================= */}
         <div
           id="lpg"
-          className="mb-28 rounded-3xl bg-[#11141d] border border-white/[0.1] p-7 sm:p-10 lg:p-12 relative overflow-hidden shadow-xl"
+          className="rounded-3xl bg-[#11141d] border border-white/[0.1] p-7 sm:p-10 lg:p-12 relative overflow-hidden shadow-xl"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest mb-3 flex items-center gap-2">
-                <span className="text-amber-400 font-bold">04 /</span>
+                <span className="text-emerald-400 font-bold">ADDITIONAL BUILD /</span>
                 <span>REAL-TIME IOT &amp; DASHBOARD</span>
               </div>
 
@@ -105,15 +268,15 @@ export function ProjectsGrid() {
         </div>
 
         {/* ========================================================================= */}
-        {/* 5. OTHER PROJECTS & EXPLORATIONS COLLECTION */}
+        {/* 3. OTHER PROJECTS & ARCHIVE EXPERIMENTS */}
         {/* ========================================================================= */}
         <div>
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/[0.08]">
             <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest flex items-center gap-2">
-              <span className="text-orange-400 font-bold">05 /</span>
-              <span>PROJECTS COLLECTION</span>
+              <span className="text-orange-400 font-bold">ARCHIVE /</span>
+              <span>SOFTWARE &amp; EXPERIMENTS</span>
             </div>
-            <span className="text-xs font-mono text-[#9ba1a6]">SOFTWARE &amp; EXPERIMENTS</span>
+            <span className="text-xs font-mono text-[#9ba1a6]">VERIFIED REPOSITORIES</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

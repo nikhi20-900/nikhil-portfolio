@@ -10,7 +10,7 @@ interface ToolItem {
   name: string;
   category: "build" | "ai" | "systems" | "robotics";
   categoryLabel: string;
-  status: "Used in" | "Currently exploring" | "BUILDING";
+  status: "Used in" | "Currently exploring" | "BUILDING" | "EXPLORING" | "PLANNED";
   usage: string;
   connectedProjects: string[];
 }
@@ -110,6 +110,42 @@ const TOOLS_DATA: ToolItem[] = [
     connectedProjects: ["Forge"],
   },
   {
+    id: "rag-systems",
+    name: "RAG & Knowledge Retrieval",
+    category: "ai",
+    categoryLabel: "AI & AUTOMATION",
+    status: "EXPLORING",
+    usage: "ATLAS (Document chunking, context injection & evidence-first grounded synthesis)",
+    connectedProjects: ["Atlas (Planned)"],
+  },
+  {
+    id: "vector-embeddings",
+    name: "Embeddings & Vectors",
+    category: "ai",
+    categoryLabel: "AI & AUTOMATION",
+    status: "EXPLORING",
+    usage: "ATLAS (High-dimensional text embeddings for semantic similarity search)",
+    connectedProjects: ["Atlas (Planned)"],
+  },
+  {
+    id: "semantic-search",
+    name: "Semantic Search",
+    category: "ai",
+    categoryLabel: "AI & AUTOMATION",
+    status: "EXPLORING",
+    usage: "ATLAS (Hybrid search combining BM25 keyword matching with vector distance)",
+    connectedProjects: ["Atlas (Planned)"],
+  },
+  {
+    id: "vector-db",
+    name: "Vector Databases",
+    category: "ai",
+    categoryLabel: "AI & AUTOMATION",
+    status: "PLANNED",
+    usage: "ATLAS (HNSW vector indexing and k-nearest-neighbor fast retrieval)",
+    connectedProjects: ["Atlas (Planned)"],
+  },
+  {
     id: "agentic-workflows",
     name: "Agentic Workflows",
     category: "ai",
@@ -146,6 +182,24 @@ const TOOLS_DATA: ToolItem[] = [
     status: "Used in",
     usage: "Version control, branching, reviews & repository management",
     connectedProjects: ["All Projects"],
+  },
+  {
+    id: "cicd",
+    name: "CI/CD & Pipelines",
+    category: "systems",
+    categoryLabel: "SYSTEMS & TOOLS",
+    status: "PLANNED",
+    usage: "NEXUS (Automated repository checks, build artifacts & edge release gates)",
+    connectedProjects: ["Nexus (Planned)"],
+  },
+  {
+    id: "observability",
+    name: "Observability & Telemetry",
+    category: "systems",
+    categoryLabel: "SYSTEMS & TOOLS",
+    status: "EXPLORING",
+    usage: "NEXUS (Health sentinels, live latency metrics & deployment status)",
+    connectedProjects: ["Nexus (Planned)"],
   },
   {
     id: "linux",
@@ -275,25 +329,26 @@ export function ToolsMap() {
           <div>
             <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest mb-2 flex items-center gap-2">
               <span className="text-orange-400 font-bold">02 /</span>
-              <span>TOOLS</span>
+              <span>TOOLS &amp; ARCHITECTURAL CONCEPTS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#f5f4ef] tracking-tight">
               TOOLS I BUILD WITH
             </h2>
           </div>
           <p className="text-sm font-mono text-[#9ba1a6] max-w-md">
-            An exploratory system. Verified projects are linked directly, active prototypes are
-            marked as &ldquo;BUILDING&rdquo;, and upcoming technologies as &ldquo;Currently exploring&rdquo;.
+            An exploratory matrix. Verified technologies are marked as &ldquo;Used in&rdquo;,
+            active builds as &ldquo;BUILDING&rdquo;, and research horizons as &ldquo;EXPLORING&rdquo;
+            or &ldquo;PLANNED&rdquo;.
           </p>
         </div>
 
-        {/* 4 Category Filter Tabs */}
+        {/* 5 Category Filter Tabs */}
         <div className="flex flex-wrap items-center gap-2 mb-10">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-full font-mono text-xs transition-all border ${
+              className={`px-4 py-2 rounded-full font-mono text-xs transition-all border cursor-pointer ${
                 activeCategory === cat.id
                   ? "bg-[#f5f4ef] text-[#0d0f14] font-bold border-[#f5f4ef] shadow-md"
                   : "bg-white/[0.03] text-[#9ba1a6] border-white/[0.08] hover:text-[#f5f4ef] hover:bg-white/[0.06]"
@@ -306,7 +361,7 @@ export function ToolsMap() {
 
         {/* Interactive Grid & Connection Inspector */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Tool Chips Network (Quiet by default, active dominates on hover) */}
+          {/* Tool Chips Network */}
           <div className="lg:col-span-7 flex flex-wrap gap-2.5">
             {filteredTools.map((tool) => {
               const isSelected = selectedTool.id === tool.id;
@@ -316,7 +371,7 @@ export function ToolsMap() {
                   key={tool.id}
                   onClick={() => setSelectedTool(tool)}
                   onMouseEnter={() => setSelectedTool(tool)}
-                  className={`px-3.5 py-2 rounded-xl font-mono text-xs transition-all duration-200 text-left border flex items-center gap-2 ${
+                  className={`px-3.5 py-2 rounded-xl font-mono text-xs transition-all duration-200 text-left border flex items-center gap-2 cursor-pointer ${
                     isSelected
                       ? "bg-[#f5f4ef] text-[#0d0f14] font-bold border-[#f5f4ef] shadow-lg scale-105 opacity-100"
                       : "bg-[#10121a]/60 text-[#9ba1a6] border-white/[0.06] hover:text-[#f5f4ef] hover:bg-[#151822] opacity-75 hover:opacity-100"
@@ -328,6 +383,8 @@ export function ToolsMap() {
                         ? "bg-emerald-400"
                         : tool.status === "BUILDING"
                         ? "bg-orange-400"
+                        : tool.status === "PLANNED"
+                        ? "bg-orange-300"
                         : "bg-amber-400"
                     }`}
                   />
@@ -362,6 +419,8 @@ export function ToolsMap() {
                         ? "text-emerald-400 border-emerald-800/40 bg-emerald-950/40"
                         : selectedTool.status === "BUILDING"
                         ? "text-orange-400 border-orange-800/40 bg-orange-950/40"
+                        : selectedTool.status === "PLANNED"
+                        ? "text-orange-300 border-orange-800/40 bg-orange-950/40"
                         : "text-amber-400 border-amber-800/40 bg-amber-950/40"
                     }`}
                   >
@@ -369,7 +428,7 @@ export function ToolsMap() {
                   </span>
                 </div>
 
-                {/* Connection Flow: React.js -> USED IN -> Project */}
+                {/* Connection Flow */}
                 <div className="space-y-2 font-mono">
                   <div className="text-[10px] text-[#9ba1a6] uppercase tracking-wider">
                     Connection Flow:

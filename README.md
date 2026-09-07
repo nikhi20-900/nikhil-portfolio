@@ -36,10 +36,22 @@ I approach modern AI tooling, agents, and terminal automation as **force multipl
 - Explores real-time state, optimistic UI updates, WebSocket synchronization, presence telemetry, and collaborative conflict handling *(Currently Building / In Development)*.
 - **Technologies Explored**: Next.js, React, WebSockets, Database / Schema, Product UX.
 
-### 4. LPG Gas Leakage Dashboard
+### 4. ATLAS
+**AI / RAG / Knowledge Systems**
+- A knowledge workspace exploring document ingestion, semantic retrieval, grounded generation, and evidence-first answers.
+- Features a 7-stage retrieval pipeline (`DOCUMENTS → INGEST → CHUNK → INDEX → RETRIEVE → GENERATE → EVIDENCE`) and deterministic source citation highlighting *(Currently Building / Architectural Prototype)*.
+- **Technologies Explored**: RAG Architecture, Embeddings, Vector Search Concepts, Context Budgeting, Grounded Attribution.
+
+### 5. NEXUS
+**DevOps / Automation / Developer Infrastructure**
+- An operational developer infrastructure platform connecting source repositories, automated test gates, immutable build artifacts, and edge health observability.
+- Bridges local developer coding (Forge) to remote deployment lifecycles (`REPOSITORY → ANALYZE → BUILD → TEST → DEPLOY → MONITOR`) *(Currently Building / Architectural Prototype)*.
+- **Technologies Explored**: CI/CD Pipelines, Turbopack, Test Gates, Edge Rollouts, Infrastructure Observability.
+
+### Additional Build: LPG Gas Leakage Dashboard
 **Real-Time IoT Dashboard for Monitoring Gas Leakage and Automatic Shutoff**
 - Streams real-time telemetry from physical MQ-6 sensors to visualize gas concentration levels, solenoid valve status, and emergency threshold alerts.
-- **Technologies Used**: React, Vite, Tailwind CSS, Firebase Realtime Database, Recharts, Framer Motion.
+- **Technologies Used**: React, Vite, Tailwind CSS, Firebase Realtime Database, Recharts, Framer Motion *(Built)*.
 
 ---
 

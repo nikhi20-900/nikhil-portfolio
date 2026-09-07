@@ -8,9 +8,10 @@ import { GithubIcon, LinkedinIcon } from "./ui/icons";
 const NAV_ITEMS = [
   { label: "Lab", href: "#lab" },
   { label: "Navigen", href: "#navigen" },
-  { label: "Tools", href: "#tools" },
   { label: "Forge", href: "#forge" },
   { label: "Pulse", href: "#pulse" },
+  { label: "Atlas", href: "#atlas" },
+  { label: "Nexus", href: "#nexus" },
   { label: "Projects", href: "#projects" },
   { label: "Notes", href: "#notes" },
   { label: "Contact", href: "#contact" },

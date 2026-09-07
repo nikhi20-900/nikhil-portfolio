@@ -56,6 +56,8 @@ export function TerminalEasterEgg() {
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">navigen</span> <span className="text-white/40 block text-xs">SIH 2025 Autonomous UGV</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">forge</span> <span className="text-white/40 block text-xs">AI CLI terminal agent</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">pulse</span> <span className="text-white/40 block text-xs">Realtime collab workspace</span></div>
+              <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">atlas</span> <span className="text-white/40 block text-xs">AI / RAG knowledge systems</span></div>
+              <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">nexus</span> <span className="text-white/40 block text-xs">DevOps & infrastructure</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">github</span> <span className="text-white/40 block text-xs">Repositories & code</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">contact</span> <span className="text-white/40 block text-xs">Email & LinkedIn</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">clear</span> <span className="text-white/40 block text-xs">Reset terminal display</span></div>
@@ -77,7 +79,9 @@ export function TerminalEasterEgg() {
               <p><span className="text-[#f5f4ef] font-bold">01. NAVIGEN</span> — Vision-based autonomous ground vehicle <span className="text-emerald-400 text-xs font-semibold">[BUILT / SIH 2025]</span></p>
               <p><span className="text-[#f5f4ef] font-bold">02. FORGE</span> — AI software engineering terminal agent <span className="text-orange-400 text-xs font-semibold">[BUILDING]</span></p>
               <p><span className="text-[#f5f4ef] font-bold">03. PULSE</span> — Real-time collaborative workspace <span className="text-orange-400 text-xs font-semibold">[BUILDING / ILLUSTRATIVE]</span></p>
-              <p><span className="text-[#f5f4ef] font-bold">04. LPG DASHBOARD</span> — Real-time sensor telemetry & valve shutoff <span className="text-emerald-400 text-xs font-semibold">[BUILT]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">04. ATLAS</span> — AI / RAG knowledge systems <span className="text-orange-400 text-xs font-semibold">[BUILDING / CONCEPT]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">05. NEXUS</span> — DevOps & developer infrastructure <span className="text-orange-400 text-xs font-semibold">[BUILDING / SIMULATED CI/CD]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">ADDITIONAL: LPG DASHBOARD</span> — Real-time sensor telemetry & valve shutoff <span className="text-emerald-400 text-xs font-semibold">[BUILT]</span></p>
             </div>
           </div>
         );
@@ -96,6 +100,16 @@ export function TerminalEasterEgg() {
       case "pulse":
         response =
           "PULSE: Real-time collaborative workspace exploring multi-user state, optimistic UI, presence detection, and WebSocket synchronization. Currently in active development.";
+        break;
+
+      case "atlas":
+        response =
+          "ATLAS: AI / RAG / Knowledge Systems. Turn scattered knowledge into answers you can trace. Explores document ingestion, chunking strategies, vector embeddings, and strict deterministic source attribution. 'The interesting part isn't generating an answer. It's knowing where that answer came from.'";
+        break;
+
+      case "nexus":
+        response =
+          "NEXUS: DevOps / Automation / Developer Infrastructure. From commit to deployment — see what happens in between. Bridges code authoring in Forge to operational pipelines, automated test gates, immutable build artifacts, and edge health observability.";
         break;
 
       case "github":

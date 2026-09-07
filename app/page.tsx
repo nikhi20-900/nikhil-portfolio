@@ -7,6 +7,9 @@ import { ChapterTransition } from "@/components/ui/chapter-transition";
 import { ToolsMap } from "@/components/tools-map";
 import { ForgeFeatured } from "@/components/forge-featured";
 import { PulseFeatured } from "@/components/pulse-featured";
+import { AtlasFeatured } from "@/components/atlas-featured";
+import { NexusFeatured } from "@/components/nexus-featured";
+import { AtlasNexusSynthesis } from "@/components/ui/atlas-nexus-synthesis";
 import { ProjectsGrid } from "@/components/projects-grid";
 import { ThingsThatBroke } from "@/components/things-that-broke";
 import { BuildNotes } from "@/components/build-notes";
@@ -33,7 +36,7 @@ export default function Home() {
         {/* 1. HERO — High contrast, massive headline, generous whitespace */}
         <Hero />
 
-        {/* 2. BUILDER'S LAB — Interactive accordion prototypes */}
+        {/* 2. BUILDER'S LAB — Interactive accordion prototypes (01 to 06) */}
         <BuildersLab />
 
         {/* 3. NAVIGEN — Standout Featured Project 01 (Robotics, perception pipeline) */}
@@ -59,7 +62,7 @@ export default function Home() {
         <ChapterTransition
           fromNumber="02"
           fromTitle="THE STACK"
-          toNumber="03"
+          toNumber="02"
           toTitle="AI AGENTS / FORGE"
           statement="From writing code manually to orchestrating agents in the terminal."
           substatement="Developer tooling and AI workflows act as force multipliers for rapid prototyping."
@@ -68,11 +71,11 @@ export default function Home() {
         {/* 5. FORGE — Standout Featured Project 02 (AI Engineering, 8-step pipeline, terminal) */}
         <ForgeFeatured />
 
-        {/* CHAPTER TRANSITION 3: LOCAL → COLLABORATIVE */}
+        {/* CHAPTER TRANSITION 3: SINGLE-DEV CLI → MULTIPLAYER WORKSPACE */}
         <ChapterTransition
-          fromNumber="03"
+          fromNumber="02"
           fromTitle="DEVELOPER CLI / FORGE"
-          toNumber="04"
+          toNumber="03"
           toTitle="REAL-TIME PRODUCT / PULSE"
           statement="From single-developer tools to real-time multiplayer products."
           substatement="Where multiple people, shared state, and live synchronization meet."
@@ -81,31 +84,60 @@ export default function Home() {
         {/* 6. PULSE — Standout Featured Project 03 (Full-Stack / Real-Time Collaborative Workspace) */}
         <PulseFeatured />
 
-        {/* 7. PROJECTS COLLECTION — LPG Dashboard (04) + Archive projects (05) */}
-        <ProjectsGrid />
+        {/* CHAPTER TRANSITION 4: REAL-TIME STATE → GROUNDED KNOWLEDGE */}
+        <ChapterTransition
+          fromNumber="03"
+          fromTitle="REAL-TIME STATE / PULSE"
+          toNumber="04"
+          toTitle="KNOWLEDGE SYSTEMS / ATLAS"
+          statement="From synchronizing live state to grounding answers in evidence."
+          substatement="Turning scattered documents into traceable, verifiable intelligence."
+        />
 
-        {/* 8. THINGS THAT BROKE — Honest Engineering Autopsies */}
+        {/* 7. ATLAS — Standout Featured Project 04 (AI / RAG / Knowledge Systems) */}
+        <AtlasFeatured />
+
+        {/* CHAPTER TRANSITION 5: KNOWLEDGE → DEVOPS & INFRASTRUCTURE */}
+        <ChapterTransition
+          fromNumber="04"
+          fromTitle="KNOWLEDGE SYSTEMS / ATLAS"
+          toNumber="05"
+          toTitle="DEVOPS & INFRASTRUCTURE / NEXUS"
+          statement="From asking what is true to understanding how software ships."
+          substatement="Connecting source code, automated gates, builds, and edge observability."
+        />
+
+        {/* 8. NEXUS — Standout Featured Project 05 (DevOps / Automation / Developer Infrastructure) */}
+        <NexusFeatured />
+
+        {/* 9. ATLAS × NEXUS SYNTHESIS BRIDGE — Information & Software */}
+        <AtlasNexusSynthesis />
+
+        {/* 10. THINGS THAT BROKE — Honest Engineering Autopsies */}
         <ThingsThatBroke />
 
-        {/* 9. BUILD NOTES — Things I'm Currently Figuring Out */}
+        {/* 11. BUILD NOTES — Things I'm Currently Figuring Out */}
         <BuildNotes />
 
-        {/* 10. HOW I BUILD — 5 Steps to Shipping */}
+        {/* 12. HOW I BUILD — 5 Steps to Shipping */}
         <HowIBuild />
 
-        {/* 11. BUILT UNDER PRESSURE — Hackathons & Pressure Sprints */}
+        {/* 13. PROJECTS COLLECTION — Five Flagships Index + LPG Dashboard + Archive */}
+        <ProjectsGrid />
+
+        {/* 14. BUILT UNDER PRESSURE — Hackathons & Pressure Sprints */}
         <Hackathons />
 
-        {/* 12. SOURCE CODE — GitHub Evidence & Commits */}
+        {/* 15. SOURCE CODE — GitHub Evidence & Commits */}
         <GithubEvidence />
 
-        {/* 13. EDUCATION — Foundations & Active Learning */}
+        {/* 16. EDUCATION — Foundations & Active Learning */}
         <Education />
 
-        {/* 14. TERMINAL EASTER EGG — Interactive CLI */}
+        {/* 17. TERMINAL EASTER EGG — Interactive CLI */}
         <TerminalEasterEgg />
 
-        {/* 15. LET'S BUILD / CONTACT — Direct channels & final call to action */}
+        {/* 18. LET'S BUILD / CONTACT — Direct channels & final call to action */}
         <Contact />
       </div>
 
