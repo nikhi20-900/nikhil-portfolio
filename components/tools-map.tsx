@@ -322,7 +322,7 @@ export function ToolsMap() {
       : TOOLS_DATA.filter((tool) => tool.category === activeCategory);
 
   return (
-    <section id="tools" className="py-24 md:py-36 relative">
+    <section id="tools" className="py-20 md:py-28 relative">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Section Header (Level 02 Heading) */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-white/[0.08]">
@@ -380,12 +380,12 @@ export function ToolsMap() {
                   <span
                     className={`w-1.5 h-1.5 rounded-full ${
                       tool.status === "Used in"
-                        ? "bg-emerald-400"
+                        ? "bg-[#84a98c]"
                         : tool.status === "BUILDING"
                         ? "bg-orange-400"
                         : tool.status === "PLANNED"
                         ? "bg-orange-300"
-                        : "bg-amber-400"
+                        : "bg-slate-400"
                     }`}
                   />
                   <span>{tool.name}</span>
@@ -416,12 +416,12 @@ export function ToolsMap() {
                   <span
                     className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-full border ${
                       selectedTool.status === "Used in"
-                        ? "text-emerald-400 border-emerald-800/40 bg-emerald-950/40"
+                        ? "badge-built"
                         : selectedTool.status === "BUILDING"
-                        ? "text-orange-400 border-orange-800/40 bg-orange-950/40"
+                        ? "badge-building"
                         : selectedTool.status === "PLANNED"
                         ? "text-orange-300 border-orange-800/40 bg-orange-950/40"
-                        : "text-amber-400 border-amber-800/40 bg-amber-950/40"
+                        : "badge-exploring"
                     }`}
                   >
                     {selectedTool.status}

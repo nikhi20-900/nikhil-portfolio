@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
 :root {
+  /* Canonical background / foreground tokens — layout.tsx and page.tsx must
+     reference these via bg-background / text-foreground, never raw hex. */
   --background: #0d0f14;
   --foreground: #f5f4ef;
   --surface-1: #13161c;
   --surface-2: #1a1e26;
+  --surface-3: #232833;
+  --surface-4: #363d4d;
   --surface-border: rgba(245, 244, 239, 0.08);
   --accent-terracotta: #ea580c;
   --accent-terracotta-light: #f97316;
   --accent-sage: #84a98c;
   --accent-sand: #d4a373;
+  --muted: #9ba1a6;
 }
 
 @theme inline {
@@ -33,27 +38,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Single source of truth for text selection (warm terracotta). */
 ::selection {
-  background: rgba(234, 88, 12, 0.3);
+  background: color-mix(in srgb, var(--accent-terracotta) 30%, transparent);
   color: #ffffff;
 }
 
-/* Custom editorial scrollbar */
+/* Custom editorial scrollbar — token-driven */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d0f14;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #232833;
+  background: var(--surface-3);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #363d4d;
+  background: var(--surface-4);
 }
 
 /* Subtle warm architectural grid */
@@ -76,4 +82,74 @@ body {
 /* Refined typography helper */
 .editorial-lead {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* =========================================================================
+   Type scale (editorial hierarchy) — three implicit tiers used site-wide:
+   - Featured project titles: text-5xl/7xl/8xl font-black tracking-tighter
+     leading-[0.95] (mobile → desktop)
+   - Section headings (h2): text-3xl/5xl/6xl font-black tracking-tight
+   - Statement / pull-quote sections: text-4xl/6xl/7xl leading-[1.05]
+   - Body copy: text-base sm:text-lg text-[#9ba1a6]
+   - Labels / eyebrows: text-[11px] font-mono uppercase tracking-widest
+   Fonts: Geist (sans) for display/body, Geist Mono for labels/code only.
+   ========================================================================= */
+
+/* =========================================================================
+   Spacing rhythm — standard sections use py-20 md:py-28; featured projects
+   keep py-24 md:py-36; statement/closing sections use py-28 md:py-40/44;
+   chapter transitions use py-12 md:py-16. Section header blocks use
+   mb-10 md:mb-12 pb-5 (not mb-16 pb-6).
+   ========================================================================= */
+
+/* =========================================================================
+   Canonical status badges — the one place the Built / Building / Exploring
+   color language is defined. Components must use these classes so the triad
+   reads the same everywhere (sage = shipped, orange = active, slate = idea).
+   ========================================================================= */
+.badge-built {
+  color: var(--accent-sage);
+  background: rgba(132, 169, 140, 0.1);
+  border-color: rgba(132, 169, 140, 0.35);
+}
+
+.badge-building {
+  color: #fb923c;
+  background: rgba(67, 20, 7, 0.45);
+  border-color: rgba(154, 52, 18, 0.45);
+}
+
+.badge-exploring {
+  color: #94a3b8;
+  background: rgba(15, 23, 42, 0.55);
+  border-color: rgba(51, 65, 85, 0.55);
+}
+
+/* =========================================================================
+   Accessibility — visible focus ring (terracotta, palette-consistent) for
+   all interactive elements: pipeline buttons, nav links, cards, etc.
+   ========================================================================= */
+:focus-visible {
+  outline: 2px solid var(--accent-terracotta);
+  outline-offset: 2px;
+}
+
+/* =========================================================================
+   Reduced motion — honor the OS preference globally: stop continuous
+   animations (pulse, bounce, marquee) and collapse transition/animation
+   durations. Components also gate JS-driven motion (auto-cycle, cursor
+   spring) with useReducedMotion / matchMedia.
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -47,24 +47,40 @@ export function Education() {
   const [selectedLearning, setSelectedLearning] = useState<LearningChip>(LEARNING_ITEMS[0]);
 
   return (
-    <section id="education" className="py-24 md:py-36 relative">
+    <section id="about" className="py-20 md:py-28 relative">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Section Header (Level 02 Heading) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-6 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12 pb-5 border-b border-white/[0.08]">
           <div>
             <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest mb-2 flex items-center gap-2">
-              <span className="text-orange-400 font-bold">08 /</span>
-              <span>FOUNDATIONS &amp; HORIZONS</span>
+              <span className="text-orange-400 font-bold">ABOUT /</span>
+              <span>BEYOND THE PROJECTS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#f5f4ef] tracking-tight">
-              EDUCATION &amp; LEARNING
+              WHO I AM
             </h2>
           </div>
-          <div className="max-w-xs">
-            <p className="text-sm font-mono text-[#9ba1a6]">
-              Academic theory paired with self-directed technical building.
+          <div className="max-w-md">
+            <p className="text-sm font-mono text-[#9ba1a6] leading-relaxed">
+              BCA student in Bangalore. I build full-stack products, AI systems, and robots —
+              mostly by starting a prototype and learning whatever the problem demands.
             </p>
           </div>
+        </div>
+
+        {/* Human bio — specific to the actual body of work */}
+        <div className="mb-10 p-6 sm:p-8 rounded-2xl bg-[#11141d] border border-white/[0.08]">
+          <p className="text-base sm:text-lg text-[#f5f4ef] font-light leading-relaxed max-w-3xl">
+            I&apos;m Nikhil Chhetri — a BCA student at Dayananda Sagar University who treats
+            hackathons as proof-of-work: NAVIGEN ran on a physical UGV at Smart India Hackathon
+            2025, my fraud investigation agent ships with public source, and SchemeSaathi is an
+            active team build. Outside deadlines I keep a builder&apos;s lab of prototypes,
+            write build notes on what I&apos;m still figuring out, and use the terminal + AI as
+            force multipliers — without letting the tools think for me.
+          </p>
+          <p className="text-xs font-mono text-[#9ba1a6] mt-4">
+            Learn by building · Ship under constraints · Keep the status labels honest
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
@@ -72,7 +88,7 @@ export function Education() {
           <div className="lg:col-span-6 space-y-5">
             <div className="p-7 sm:p-8 rounded-2xl bg-[#11141d] border border-white/[0.08]">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono text-emerald-400 font-semibold flex items-center gap-1.5">
+                <span className="text-xs font-mono text-[#84a98c] font-semibold flex items-center gap-1.5">
                   <GraduationCap className="w-4 h-4" />
                   <span>CURRENT UNDERGRADUATE</span>
                 </span>
@@ -146,8 +162,8 @@ export function Education() {
                       <span
                         className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${
                           item.status === "BUILDING"
-                            ? "text-emerald-400 bg-emerald-950/40 border-emerald-800/40"
-                            : "text-amber-400 bg-amber-950/40 border-amber-800/40"
+                            ? "badge-building"
+                            : "badge-exploring"
                         }`}
                       >
                         {item.status}

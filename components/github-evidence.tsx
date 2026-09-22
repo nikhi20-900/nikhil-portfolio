@@ -13,6 +13,27 @@ interface RepoEvidence {
 
 const REPOS: RepoEvidence[] = [
   {
+    name: "Agentic Fraud Investigation Agent",
+    repo: "nikhi20-900/fraud-investigation-agent",
+    desc: "Graph-based fraud investigation with deterministic risk scoring, a LangGraph agent, and a React investigation dashboard.",
+    techs: ["Python", "FastAPI", "TigerGraph", "LangGraph"],
+    url: "https://github.com/nikhi20-900/fraud-investigation-agent",
+  },
+  {
+    name: "SchemeSaathi",
+    repo: "nikhi20-900/SchemeSaathi",
+    desc: "AI government scheme navigator — LLM for language understanding, deterministic rules engine for eligibility decisions.",
+    techs: ["Python", "FastAPI", "React", "RAG"],
+    url: "https://github.com/nikhi20-900/SchemeSaathi",
+  },
+  {
+    name: "Student Performance Data Mining",
+    repo: "nikhi20-900/student-performance-data-mining",
+    desc: "BCA data mining case study — classification and clustering on the UCI student performance dataset with reproducible results.",
+    techs: ["Python", "Jupyter", "scikit-learn"],
+    url: "https://github.com/nikhi20-900/student-performance-data-mining",
+  },
+  {
     name: "LPG Gas Leakage Dashboard",
     repo: "nikhi20-900/lpg-gas-leakage-dashboard",
     desc: "Real-time IoT dashboard for monitoring LPG gas leakage and system status, visual charts, and valve alerts.",
@@ -44,11 +65,11 @@ const REPOS: RepoEvidence[] = [
 
 export function GithubEvidence() {
   return (
-    <section id="code" className="py-24 md:py-36 relative">
+    <section id="code" className="py-20 md:py-28 relative">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
         {/* Header (Level 02 Heading) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-6 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12 pb-5 border-b border-white/[0.08]">
           <div>
             <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest mb-2 flex items-center gap-2">
               <span className="text-orange-400 font-bold">07 /</span>
@@ -91,15 +112,20 @@ export function GithubEvidence() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.06]">
-                {repo.techs.map((t) => (
-                  <span
-                    key={t}
-                    className="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-[#f5f4ef] border border-white/[0.06]"
-                  >
-                    {t}
-                  </span>
-                ))}
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/[0.06]">
+                <div className="flex flex-wrap gap-1.5">
+                  {repo.techs.map((t) => (
+                    <span
+                      key={t}
+                      className="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-[#f5f4ef] border border-white/[0.06]"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <span className="text-[11px] font-mono text-[#84a98c] font-semibold">
+                  OPEN REPOSITORY →
+                </span>
               </div>
             </a>
           ))}

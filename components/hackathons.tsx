@@ -79,10 +79,10 @@ export function Hackathons() {
   const [activeId, setActiveId] = useState<string>("sih-2025");
 
   return (
-    <section id="hackathons" className="py-24 md:py-36 relative">
+    <section id="hackathons" className="py-20 md:py-28 relative">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Header (Level 02 Heading) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-6 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12 pb-5 border-b border-white/[0.08]">
           <div>
             <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest mb-2 flex items-center gap-2">
               <span className="text-orange-400 font-bold">06 /</span>
@@ -110,7 +110,7 @@ export function Hackathons() {
                 onClick={() => setActiveId(milestone.id)}
                 className={`p-6 sm:p-8 rounded-2xl cursor-pointer transition-all duration-300 border ${
                   isActive
-                    ? "bg-[#141822] border-white/[0.2] shadow-2xl opacity-100 scale-[1.005]"
+                    ? "bg-[#141822] border-white/[0.2] shadow-2xl opacity-100"
                     : "bg-[#101219]/40 border-white/[0.04] opacity-55 hover:opacity-85 hover:bg-[#131620]"
                 }`}
               >

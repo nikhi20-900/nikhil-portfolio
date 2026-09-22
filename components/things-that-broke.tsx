@@ -103,7 +103,7 @@ export function ThingsThatBroke() {
   const activeIncident = INCIDENTS.find((i) => i.id === activeId) || INCIDENTS[0];
 
   return (
-    <section id="breakdowns" className="py-24 md:py-36 relative overflow-hidden">
+    <section id="breakdowns" className="py-20 md:py-28 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Section Orientation */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]">
@@ -158,8 +158,10 @@ export function ThingsThatBroke() {
                     <span
                       className={`text-[9px] font-mono uppercase px-2 py-0.5 rounded border font-bold ${
                         item.badgeType === "BUILT"
-                          ? "bg-emerald-950/40 text-emerald-400 border-emerald-800/40"
-                          : "bg-orange-950/40 text-orange-300 border-orange-800/40"
+                          ? "badge-built"
+                          : item.badgeType === "BUILDING"
+                          ? "badge-building"
+                          : "badge-exploring"
                       }`}
                     >
                       {item.badge}
@@ -202,8 +204,10 @@ export function ThingsThatBroke() {
                   <span
                     className={`text-[10px] font-mono uppercase px-2.5 py-1 rounded-full border font-bold ${
                       activeIncident.badgeType === "BUILT"
-                        ? "bg-emerald-950/40 text-emerald-400 border-emerald-800/40"
-                        : "bg-orange-950/40 text-orange-300 border-orange-800/40"
+                        ? "badge-built"
+                        : activeIncident.badgeType === "BUILDING"
+                        ? "badge-building"
+                        : "badge-exploring"
                     }`}
                   >
                     {activeIncident.badge}
@@ -246,12 +250,12 @@ export function ThingsThatBroke() {
                   </div>
 
                   {/* 4. LESSON */}
-                  <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-800/40 space-y-1.5">
-                    <div className="flex items-center gap-2 text-emerald-400 font-bold tracking-wider uppercase text-[11px]">
+                  <div className="p-4 rounded-xl bg-[#84a98c]/[0.05] border border-[#84a98c]/25 space-y-1.5">
+                    <div className="flex items-center gap-2 text-[#84a98c] font-bold tracking-wider uppercase text-[11px]">
                       <Lightbulb className="w-3.5 h-3.5" />
                       <span>04 — LESSON (What did I learn?)</span>
                     </div>
-                    <p className="text-emerald-200 font-light leading-relaxed">
+                    <p className="text-[#84a98c]/90 font-light leading-relaxed">
                       {activeIncident.lesson}
                     </p>
                   </div>

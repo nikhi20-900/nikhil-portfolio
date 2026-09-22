@@ -283,12 +283,12 @@ export function PulseFeatured() {
             <span>PULSE / BUILDING</span>
           </div>
           <div className="flex items-center gap-2 font-mono text-xs">
-            <span className="px-3 py-0.5 rounded-full bg-[#f97316]/10 text-[#f97316] border border-[#f97316]/30 font-bold flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#f97316]" />
+            <span className="px-3 py-0.5 rounded-full font-bold flex items-center gap-1.5 border badge-building">
+              <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
               BUILDING
             </span>
             <span className="px-2.5 py-0.5 rounded bg-white/[0.04] text-[#9ba1a6] border border-white/[0.08]">
-              Concept / active build
+              In active development
             </span>
           </div>
         </div>
@@ -562,7 +562,7 @@ export function PulseFeatured() {
                         <div
                           className={`p-3.5 rounded-xl border transition-all duration-500 flex items-center justify-between gap-3 ${
                             taskState === "REVIEW"
-                              ? "bg-[#f97316]/10 border-[#f97316]/50 shadow-lg shadow-[#f97316]/10 scale-[1.01]"
+                              ? "bg-[#f97316]/10 border-[#f97316]/50 shadow-lg shadow-[#f97316]/10"
                               : "bg-white/[0.03] border-white/[0.08]"
                           }`}
                         >
@@ -1017,7 +1017,7 @@ export function PulseFeatured() {
               </h4>
             </div>
             <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#f97316]/10 text-[#f97316] border border-[#f97316]/30 self-start sm:self-auto">
-              PLANNED ARCHITECTURE · EXPLORING
+              PLANNED ARCHITECTURE · BUILDING
             </span>
           </div>
 

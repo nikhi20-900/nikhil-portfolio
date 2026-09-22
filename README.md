@@ -22,27 +22,48 @@ I approach modern AI tooling, agents, and terminal automation as **force multipl
 **Vision Based Autonomous Navigation for Unmanned Ground Vehicle for Outdoor Environment**
 - Developed for **Smart India Hackathon 2025**.
 - Combines robotics, computer vision, and autonomous navigation to enable an outdoor ground vehicle to perceive terrain, segment obstacles, and plan collision-free trajectories under real physical constraints.
-- **Technologies Used**: ROS 2, Python, Raspberry Pi, ESP32, OpenCV / Computer Vision, Gazebo.
+- **Technologies Used**: ROS 2, Python, OpenCV, Nav2, Raspberry Pi, ESP32, Gazebo.
+- *Hardware build — no public repository.*
 
-### 2. Forge
+### 2. Agentic Fraud Investigation Agent
+**Graph-Based Fraud Investigation Platform**
+- Synthetic fraud graph → TigerGraph pattern detection → LangGraph investigation agent → deterministic risk & uncertainty scoring → next-best-action engine → React investigation dashboard.
+- 7 core vertex types (Customer, Account, Transaction, Card, Device, IP, Merchant), 6 fraud pattern detectors, and an offline evaluation suite.
+- **Technologies Used**: Python, FastAPI, TigerGraph (GSQL), LangGraph, React, TypeScript, Tailwind CSS.
+- **Repository**: [nikhi20-900/fraud-investigation-agent](https://github.com/nikhi20-900/fraud-investigation-agent) *(Built)*
+
+### 3. SchemeSaathi
+**AI Government Scheme Navigator**
+- Architecture separates concerns deliberately: the LLM handles language understanding and extraction; a deterministic rules engine decides eligibility against published government criteria, with RAG knowledge retrieval and OCR document metadata.
+- Phase 1 scaffold with a 4-member team structure across AI/RAG, eligibility engine, OCR, and frontend modules.
+- **Technologies Used**: Python, FastAPI, React, Vite, RAG, OCR, Rules Engine.
+- **Repository**: [nikhi20-900/SchemeSaathi](https://github.com/nikhi20-900/SchemeSaathi) *(Building)*
+
+### 4. Student Performance Analysis
+**BCA Data Mining Case Study**
+- Classification and clustering study on the UCI Student Performance (Mathematics) dataset with a reproducible notebook and saved evaluation results.
+- **Technologies Used**: Python, Jupyter, pandas, scikit-learn *(Built)*.
+- **Repository**: [nikhi20-900/student-performance-data-mining](https://github.com/nikhi20-900/student-performance-data-mining)
+
+### 5. Forge
 **AI Software Engineering Agent**
 - An AI-assisted developer tool designed to help plan, analyze, code, test, debug, and review software directly from the terminal.
 - Features an 8-stage execution pipeline (`TASK → PLAN → INSPECT → CODE → TEST → DEBUG → REVIEW → DONE`) and a tactile developer CLI interface.
 - **Technologies Used**: CLI Tooling, TypeScript, Node.js, AI/LLM APIs, Git *(Active Local Prototype)*.
 
-### 3. Pulse
+### 6. Pulse
 **Real-Time Collaborative Workspace**
 - A full-stack collaborative workspace where teams manage projects, tasks, documents, and live activity together in real time.
 - Explores real-time state, optimistic UI updates, WebSocket synchronization, presence telemetry, and collaborative conflict handling *(Currently Building / In Development)*.
 - **Technologies Explored**: Next.js, React, WebSockets, Database / Schema, Product UX.
 
-### 4. ATLAS
+### 7. ATLAS
 **AI / RAG / Knowledge Systems**
 - A knowledge workspace exploring document ingestion, semantic retrieval, grounded generation, and evidence-first answers.
 - Features a 7-stage retrieval pipeline (`DOCUMENTS → INGEST → CHUNK → INDEX → RETRIEVE → GENERATE → EVIDENCE`) and deterministic source citation highlighting *(Currently Building / Architectural Prototype)*.
 - **Technologies Explored**: RAG Architecture, Embeddings, Vector Search Concepts, Context Budgeting, Grounded Attribution.
 
-### 5. NEXUS
+### 8. NEXUS
 **DevOps / Automation / Developer Infrastructure**
 - An operational developer infrastructure platform connecting source repositories, automated test gates, immutable build artifacts, and edge health observability.
 - Bridges local developer coding (Forge) to remote deployment lifecycles (`REPOSITORY → ANALYZE → BUILD → TEST → DEPLOY → MONITOR`) *(Currently Building / Architectural Prototype)*.

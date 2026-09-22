@@ -54,7 +54,9 @@ export function TerminalEasterEgg() {
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">about</span> <span className="text-white/40 block text-xs">Who I am & background</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">projects</span> <span className="text-white/40 block text-xs">Active systems index</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">navigen</span> <span className="text-white/40 block text-xs">SIH 2025 Autonomous UGV</span></div>
+              <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">fraud</span> <span className="text-white/40 block text-xs">Graph fraud investigation</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">forge</span> <span className="text-white/40 block text-xs">AI CLI terminal agent</span></div>
+              <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">schemesaathi</span> <span className="text-white/40 block text-xs">Eligibility engine build</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">pulse</span> <span className="text-white/40 block text-xs">Realtime collab workspace</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">atlas</span> <span className="text-white/40 block text-xs">AI / RAG knowledge systems</span></div>
               <div className="bg-white/[0.02] border border-white/[0.06] p-2 rounded"><span className="text-[#f5f4ef] font-bold">nexus</span> <span className="text-white/40 block text-xs">DevOps & infrastructure</span></div>
@@ -76,12 +78,15 @@ export function TerminalEasterEgg() {
           <div className="space-y-2 text-xs sm:text-sm font-mono leading-relaxed">
             <p className="text-orange-400 font-bold tracking-wide">PROJECT HIERARCHY:</p>
             <div className="space-y-1.5 pl-1">
-              <p><span className="text-[#f5f4ef] font-bold">01. NAVIGEN</span> — Vision-based autonomous ground vehicle <span className="text-emerald-400 text-xs font-semibold">[BUILT / SIH 2025]</span></p>
-              <p><span className="text-[#f5f4ef] font-bold">02. FORGE</span> — AI software engineering terminal agent <span className="text-orange-400 text-xs font-semibold">[BUILDING]</span></p>
-              <p><span className="text-[#f5f4ef] font-bold">03. PULSE</span> — Real-time collaborative workspace <span className="text-orange-400 text-xs font-semibold">[BUILDING / ILLUSTRATIVE]</span></p>
-              <p><span className="text-[#f5f4ef] font-bold">04. ATLAS</span> — AI / RAG knowledge systems <span className="text-orange-400 text-xs font-semibold">[BUILDING / CONCEPT]</span></p>
-              <p><span className="text-[#f5f4ef] font-bold">05. NEXUS</span> — DevOps & developer infrastructure <span className="text-orange-400 text-xs font-semibold">[BUILDING / SIMULATED CI/CD]</span></p>
-              <p><span className="text-[#f5f4ef] font-bold">ADDITIONAL: LPG DASHBOARD</span> — Real-time sensor telemetry & valve shutoff <span className="text-emerald-400 text-xs font-semibold">[BUILT]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">01. NAVIGEN</span> — Vision-based autonomous ground vehicle <span className="text-[#84a98c] text-xs font-semibold">[BUILT / SIH 2025]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">02. FRAUD INVESTIGATION AGENT</span> — Graph + LangGraph fraud triage <span className="text-[#84a98c] text-xs font-semibold">[BUILT / PUBLIC REPO]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">03. STUDENT PERFORMANCE ANALYSIS</span> — Classification & clustering case study <span className="text-[#84a98c] text-xs font-semibold">[BUILT / PUBLIC REPO]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">04. SCHEMESAATHI</span> — Deterministic scheme eligibility engine <span className="text-orange-400 text-xs font-semibold">[BUILDING]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">05. FORGE</span> — AI software engineering terminal agent <span className="text-orange-400 text-xs font-semibold">[BUILDING]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">06. PULSE</span> — Real-time collaborative workspace <span className="text-orange-400 text-xs font-semibold">[BUILDING]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">07. ATLAS</span> — AI / RAG knowledge systems <span className="text-orange-400 text-xs font-semibold">[BUILDING]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">08. NEXUS</span> — DevOps & developer infrastructure <span className="text-orange-400 text-xs font-semibold">[BUILDING]</span></p>
+              <p><span className="text-[#f5f4ef] font-bold">ADDITIONAL: LPG DASHBOARD</span> — Real-time sensor telemetry & valve shutoff <span className="text-[#84a98c] text-xs font-semibold">[BUILT]</span></p>
             </div>
           </div>
         );
@@ -90,6 +95,16 @@ export function TerminalEasterEgg() {
       case "navigen":
         response =
           "NAVIGEN UGV: Vision-based autonomous navigation for outdoor environments. Integrates ROS 2, OpenCV obstacle segmentation, Nav2 pure pursuit controllers, and ESP32 differential PWM motor drive. Smart India Hackathon 2025.";
+        break;
+
+      case "fraud":
+        response =
+          "FRAUD INVESTIGATION AGENT: Graph-based fraud triage — synthetic fraud graph through TigerGraph pattern detection into a LangGraph investigation agent, with deterministic risk scoring, uncertainty scoring, and a next-best-action engine feeding a React dashboard. Public repository.";
+        break;
+
+      case "schemesaathi":
+        response =
+          "SCHEMESAATHI: AI government scheme navigator (building). LLM handles language understanding and extraction; a deterministic rules engine decides eligibility against published criteria, with RAG knowledge retrieval and OCR document metadata. Public repository, Phase 1 scaffold.";
         break;
 
       case "forge":
@@ -209,7 +224,7 @@ export function TerminalEasterEgg() {
             <div className="flex items-center gap-2.5">
               <span className="w-3.5 h-3.5 rounded-full bg-red-500/80 inline-block shadow-sm" />
               <span className="w-3.5 h-3.5 rounded-full bg-amber-500/80 inline-block shadow-sm" />
-              <span className="w-3.5 h-3.5 rounded-full bg-emerald-500/80 inline-block shadow-sm" />
+              <span className="w-3.5 h-3.5 rounded-full bg-[#84a98c]/80 inline-block shadow-sm" />
               <span className="text-xs sm:text-sm font-mono text-[#9ba1a6] ml-2 font-medium">nikhil@ds-lab:~</span>
             </div>
             <div className="text-xs font-mono text-white/40 hidden sm:inline">
@@ -244,7 +259,7 @@ export function TerminalEasterEgg() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="type a command (e.g. help, projects, navigen)..."
-                className="flex-1 bg-transparent text-[#f5f4ef] focus:outline-none placeholder:text-white/25 font-mono text-[16px] sm:text-sm md:text-[15px] leading-normal"
+                className="flex-1 bg-transparent text-[#f5f4ef] placeholder:text-white/25 font-mono text-[16px] sm:text-sm md:text-[15px] leading-normal"
                 autoComplete="off"
                 spellCheck="false"
               />

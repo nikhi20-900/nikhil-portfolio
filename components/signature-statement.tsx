@@ -15,7 +15,7 @@ export function SignatureStatement() {
         </div>
 
         {/* Section Headline */}
-        <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#f5f4ef] tracking-tight leading-[1.05] mb-16 max-w-4xl">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#f5f4ef] tracking-tight leading-[1.05] mb-10 md:mb-12 max-w-4xl">
           &ldquo;MY FAVORITE STACK ISN&apos;T JUST A TECHNOLOGY STACK.&rdquo;
         </h2>
 

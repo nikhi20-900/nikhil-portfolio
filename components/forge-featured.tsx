@@ -11,9 +11,7 @@ import {
   FileCode2,
   CheckCircle2,
   Sparkles,
-  ArrowUpRight,
 } from "lucide-react";
-import { GithubIcon } from "./ui/icons";
 import { ForgeTerminal } from "./ui/forge-terminal";
 
 const FORGE_PIPELINE_STEPS = [
@@ -25,7 +23,7 @@ const FORGE_PIPELINE_STEPS = [
     desc: "Developer prompts a task, feature request, or bugfix directly from the terminal.",
     status: "INPUT",
     statusBadge: "CLI INPUT",
-    statusColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
+    statusColor: "text-[#84a98c] bg-[#84a98c]/10 border-[#84a98c]/30",
     icon: Terminal,
   },
   {
@@ -36,7 +34,7 @@ const FORGE_PIPELINE_STEPS = [
     desc: "Breaks a developer request into smaller implementation steps.",
     status: "CORE",
     statusBadge: "ACTIVE CORE",
-    statusColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
+    statusColor: "text-[#84a98c] bg-[#84a98c]/10 border-[#84a98c]/30",
     icon: Brain,
   },
   {
@@ -47,7 +45,7 @@ const FORGE_PIPELINE_STEPS = [
     desc: "Understands the existing repository before making changes.",
     status: "CORE",
     statusBadge: "ACTIVE CORE",
-    statusColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
+    statusColor: "text-[#84a98c] bg-[#84a98c]/10 border-[#84a98c]/30",
     icon: Search,
   },
   {
@@ -58,7 +56,7 @@ const FORGE_PIPELINE_STEPS = [
     desc: "Applies changes while respecting the existing project structure.",
     status: "CORE",
     statusBadge: "ACTIVE CORE",
-    statusColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
+    statusColor: "text-[#84a98c] bg-[#84a98c]/10 border-[#84a98c]/30",
     icon: Code2,
   },
   {
@@ -102,7 +100,7 @@ const FORGE_PIPELINE_STEPS = [
     desc: "Working, verified changes ready for branch commit.",
     status: "OUTPUT",
     statusBadge: "READY",
-    statusColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
+    statusColor: "text-[#84a98c] bg-[#84a98c]/10 border-[#84a98c]/30",
     icon: CheckCircle2,
   },
 ];
@@ -129,7 +127,7 @@ export function ForgeFeatured() {
             <span>02 / AI ENGINEERING / DEVELOPER TOOL</span>
           </div>
           <div className="flex items-center gap-2 font-mono text-xs">
-            <span className="px-3 py-0.5 rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/30 font-bold">
+            <span className="px-3 py-0.5 rounded-full font-bold border badge-building">
               BUILDING
             </span>
             <span className="text-[#9ba1a6] hidden sm:inline">Active Local Prototype</span>
@@ -176,7 +174,7 @@ export function ForgeFeatured() {
                   onMouseEnter={() => setActiveForgeIndex(idx)}
                   className={`p-3 rounded-xl text-left transition-all border flex flex-col justify-between min-h-[110px] ${
                     isSelected
-                      ? "bg-[#181d29] border-orange-500/60 shadow-lg scale-[1.02]"
+                      ? "bg-[#181d29] border-orange-500/60 shadow-lg"
                       : "bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.05] opacity-75 hover:opacity-100"
                   }`}
                 >
@@ -306,19 +304,12 @@ export function ForgeFeatured() {
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="text-xs font-mono text-[#9ba1a6]">
-              Repository in Private Development
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] text-[#f5f4ef] text-xs font-mono font-bold uppercase tracking-widest border border-white/[0.1]">
+              STATUS · BUILDING
             </span>
-            <a
-              href="https://github.com/nikhi20-900"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.06] text-[#f5f4ef] hover:bg-white/[0.1] text-xs font-mono font-semibold transition-all border border-white/[0.1]"
-            >
-              <GithubIcon className="w-3.5 h-3.5" />
-              <span>GitHub Profile</span>
-              <ArrowUpRight className="w-3 h-3" />
-            </a>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] text-[#9ba1a6] text-xs font-mono font-semibold border border-white/[0.1]">
+              CASE STUDY · repository in private development
+            </span>
           </div>
         </div>
       </div>

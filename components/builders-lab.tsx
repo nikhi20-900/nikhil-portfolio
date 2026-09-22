@@ -10,6 +10,8 @@ import {
   Users,
   BookOpen,
   Boxes,
+  ShieldAlert,
+  FileCheck2,
   type LucideIcon,
 } from "lucide-react";
 
@@ -31,92 +33,122 @@ const LAB_ITEMS: LabItem[] = [
   {
     id: "ugv",
     number: "01",
-    title: "AUTONOMOUS UGV",
-    category: "ROBOTICS · EMBEDDED SYSTEMS",
+    title: "NAVIGEN UGV",
+    category: "ROBOTICS · AUTONOMOUS SYSTEMS",
     flow: "CAMERA → PERCEPTION → DECISION → MOTOR",
-    techs: ["ROS 2", "Computer Vision", "Raspberry Pi", "ESP32", "Gazebo"],
-    status: "BUILDING",
-    statusColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
+    techs: ["ROS 2", "OpenCV", "Nav2", "Raspberry Pi", "ESP32"],
+    status: "BUILT",
+    statusColor: "badge-built",
     description:
-      "Outdoor vision-based autonomous navigation stack for an Unmanned Ground Vehicle under real physical constraints.",
+      "Vision-based autonomous navigation for an unmanned ground vehicle, running end-to-end on physical hardware outdoors.",
     details:
-      "Integrating Nav2 pure pursuit controllers, differential PWM drive, and edge OpenCV contour analysis. Built for Smart India Hackathon 2025.",
+      "Five-stage perception-to-motor pipeline built for Smart India Hackathon 2025. Full story in the NAVIGEN case study.",
     icon: Bot,
   },
   {
-    id: "forge",
+    id: "fraud",
     number: "02",
+    title: "FRAUD AGENT",
+    category: "AI AGENTS · FINANCIAL CRIME",
+    flow: "GRAPH → PATTERNS → AGENT → RISK → NBA",
+    techs: ["LangGraph", "TigerGraph", "FastAPI", "React"],
+    status: "BUILT",
+    statusColor: "badge-built",
+    description:
+      "Agentic fraud investigation over a synthetic fraud graph — pattern detection, deterministic risk scoring, and next-best actions.",
+    details:
+      "Public repository with a TigerGraph GSQL schema, local graph simulator, LangGraph agent loop, and a React investigation dashboard.",
+    icon: ShieldAlert,
+  },
+  {
+    id: "iot",
+    number: "03",
+    title: "LPG DASHBOARD",
+    category: "REAL-TIME IOT · TELEMETRY",
+    flow: "MQ-6 SENSOR → FIREBASE → DASHBOARD → AUTO-VALVE",
+    techs: ["React", "Vite", "Firebase", "Recharts", "Framer Motion"],
+    status: "BUILT",
+    statusColor: "badge-built",
+    description:
+      "Real-time gas concentration and valve automation interface streaming telemetry with live thresholds and activity logs.",
+    details:
+      "Connects physical sensor telemetry via Firebase Realtime Database to an animated web dashboard with automatic valve emergency alerts.",
+    icon: Wifi,
+  },
+  {
+    id: "schemesaathi",
+    number: "04",
+    title: "SCHEMESAATHI",
+    category: "AI · ELIGIBILITY SYSTEMS",
+    flow: "QUERY → LLM → ELIGIBILITY ENGINE → RAG → OCR",
+    techs: ["FastAPI", "React", "RAG", "OCR", "Rules Engine"],
+    status: "BUILDING",
+    statusColor: "badge-building",
+    description:
+      "Government scheme navigator where the LLM handles language understanding and a deterministic engine decides eligibility.",
+    details:
+      "Phase 1 scaffold with a four-member team across AI/RAG, eligibility engine, OCR documents, and frontend integration.",
+    icon: FileCheck2,
+  },
+  {
+    id: "forge",
+    number: "05",
     title: "FORGE",
     category: "AI AGENTS · DEVELOPER TOOLING",
     flow: "TASK → PLAN → INSPECT → CODE → TEST → REVIEW",
     techs: ["AI Agents", "CLI", "Automation", "Developer Tooling"],
     status: "BUILDING",
-    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    statusColor: "badge-building",
     description:
-      "AI SOFTWARE ENGINEERING AGENT — An AI-assisted developer tool designed to help plan, analyze, code, test, debug, and review software directly from the terminal.",
+      "AI software engineering agent — plan, inspect, code, test, and review software directly from the terminal.",
     details:
       "Building a developer tool that explores how AI agents can participate in real software engineering workflows with strict context inspection gates.",
     icon: Terminal,
   },
   {
     id: "pulse",
-    number: "03",
+    number: "06",
     title: "PULSE",
     category: "REAL-TIME · MULTIPLAYER WORKSPACE",
     flow: "STATE → SYNC → PRESENCE → CONFLICTS",
     techs: ["Next.js", "React", "Realtime", "Database", "Product UX"],
     status: "BUILDING",
-    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    statusColor: "badge-building",
     description:
-      "REAL-TIME COLLABORATIVE WORKSPACE — Exploring real-time collaboration, shared state, and full-stack product architecture.",
+      "Real-time collaborative workspace — shared state, presence, and full-stack product architecture.",
     details:
-      "A workspace where teams manage projects, tasks, documents, and discussions together in real time. Exploring optimistic UI, WebSocket sync, and collaborative state.",
+      "A workspace where teams manage projects, tasks, documents, and discussions together in real time. In active development with a prototype UI.",
     icon: Users,
   },
   {
     id: "atlas",
-    number: "04",
+    number: "07",
     title: "ATLAS",
     category: "AI · RAG · KNOWLEDGE SYSTEMS",
     flow: "DOCUMENTS → RETRIEVE → EVIDENCE",
     techs: ["RAG", "Embeddings", "Vector Search", "Grounded Retrieval", "Attribution"],
     status: "BUILDING",
-    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    statusColor: "badge-building",
     description:
-      "AI / RAG / KNOWLEDGE SYSTEMS — A knowledge workspace exploring document ingestion, semantic retrieval, grounded generation, and evidence-first answers.",
+      "Knowledge workspace for document ingestion, semantic retrieval, grounded generation, and evidence-first answers.",
     details:
-      "Turn scattered knowledge into answers you can trace. Exploring chunking strategies, vector embeddings, and strict deterministic source attribution.",
+      "Turn scattered knowledge into answers you can trace. In active development — chunking strategies, embeddings, and deterministic source attribution.",
     icon: BookOpen,
   },
   {
     id: "nexus",
-    number: "05",
+    number: "08",
     title: "NEXUS",
     category: "DEVOPS · AUTOMATION",
     flow: "CODE → BUILD → DEPLOY → MONITOR",
     techs: ["CI/CD", "Turbopack", "Automated Gates", "Edge Rollouts", "Observability"],
     status: "BUILDING",
-    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    statusColor: "badge-building",
     description:
-      "DEVOPS / AUTOMATION / DEVELOPER INFRASTRUCTURE — From commit to deployment, seeing what happens in between.",
+      "DevOps and developer infrastructure — from commit to deployment, see what happens in between.",
     details:
-      "Connecting source repositories, automated test gates, immutable build artifacts, and edge health observability in one unified operational interface.",
+      "Connecting source repositories, automated test gates, build artifacts, and edge health observability. Pipeline UI is still simulated while the system is built.",
     icon: Boxes,
-  },
-  {
-    id: "iot",
-    number: "06",
-    title: "REAL-TIME IOT",
-    category: "TELEMETRY & HARDWARE AUTOMATION",
-    flow: "MQ-6 SENSOR → FIREBASE → DASHBOARD → AUTO-VALVE",
-    techs: ["React", "Vite", "Firebase", "Recharts", "Framer Motion"],
-    status: "BUILT",
-    statusColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
-    description:
-      "Real-time gas concentration and valve automation interface streaming telemetry with live thresholds and activity logs.",
-    details:
-      "Connects physical sensor telemetry via Firebase Realtime Database to an animated web dashboard with automatic valve emergency alerts.",
-    icon: Wifi,
   },
 ];
 
@@ -124,10 +156,10 @@ export function BuildersLab() {
   const [activeId, setActiveId] = useState<string>("ugv");
 
   return (
-    <section id="lab" className="py-24 md:py-36 relative">
+    <section id="lab" className="py-20 md:py-28 relative">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Section Header (Level 02 Heading) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-6 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12 pb-5 border-b border-white/[0.08]">
           <div>
             <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest mb-2 flex items-center gap-2">
               <span className="text-orange-400 font-bold">01 /</span>
@@ -138,8 +170,7 @@ export function BuildersLab() {
             </h2>
           </div>
           <p className="text-sm font-mono text-[#9ba1a6] max-w-sm">
-            Active prototypes, hardware integrations, and software experiments currently in
-            progress.
+            Active prototypes and open experiments — each row labeled by what it actually is.
           </p>
         </div>
 
@@ -164,9 +195,9 @@ export function BuildersLab() {
                     setActiveId(item.id);
                   }
                 }}
-                className={`relative rounded-2xl p-6 sm:p-8 cursor-pointer transition-all duration-300 border focus:outline-none focus:ring-2 focus:ring-orange-500/50 ${
+                className={`relative rounded-2xl p-6 sm:p-8 cursor-pointer transition-all duration-300 border focus-visible:ring-2 focus-visible:ring-orange-500/50 ${
                   isActive
-                    ? "bg-[#161922] border-white/[0.18] shadow-2xl opacity-100 scale-[1.005]"
+                    ? "bg-[#161922] border-white/[0.18] shadow-2xl opacity-100"
                     : "bg-[#111319]/40 border-white/[0.04] opacity-55 hover:opacity-85 hover:bg-[#141720]"
                 }`}
               >
@@ -192,11 +223,11 @@ export function BuildersLab() {
                       </div>
 
                       {/* Technical Pipeline Flow Preview */}
-                      <div className="flex items-center gap-2 text-xs font-mono text-orange-400 font-medium pt-0.5">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-mono text-orange-400 font-medium pt-0.5">
                         <span className="text-[10px] text-[#9ba1a6] uppercase tracking-wider">
                           Flow:
                         </span>
-                        <span>{item.flow}</span>
+                        <span className="break-words min-w-0">{item.flow}</span>
                       </div>
 
                       <div className="flex flex-wrap gap-2 text-xs font-mono text-[#9ba1a6] pt-1">
@@ -252,7 +283,11 @@ export function BuildersLab() {
                               Execution Mode
                             </div>
                             <div className="text-xs font-mono font-semibold text-[#f5f4ef]">
-                              {item.status === "BUILT" ? "Production System" : "Hands-On Prototyping"}
+                              {item.status === "BUILT"
+                                ? "Shipped · Running"
+                                : item.status === "BUILDING"
+                                ? "Active Development"
+                                : "Exploration Prototype"}
                             </div>
                           </div>
                         </div>

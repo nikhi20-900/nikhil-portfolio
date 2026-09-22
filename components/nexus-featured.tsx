@@ -90,7 +90,6 @@ const NEXUS_LIFECYCLE_STEPS = [
 interface NexusProjectData {
   id: string;
   name: string;
-  repo: string;
   branch: string;
   commitHash: string;
   commitMsg: string;
@@ -123,7 +122,6 @@ const SIMULATED_PROJECTS: NexusProjectData[] = [
   {
     id: "portfolio",
     name: "nikhil-portfolio",
-    repo: "github.com/nikhi20-900/nikhil-portfolio",
     branch: "main",
     commitHash: "e8f2a1 · illustrative commit",
     commitMsg: "feat(narrative): integrate ATLAS & NEXUS flagship systems",
@@ -181,7 +179,6 @@ const SIMULATED_PROJECTS: NexusProjectData[] = [
   {
     id: "navigen",
     name: "navigen-core",
-    repo: "github.com/nikhi20-900/navigen-ugv",
     branch: "outdoor-sih",
     commitHash: "c4a7b9 · illustrative commit",
     commitMsg: "fix(nav2): expand obstacle inflation safety radius to 0.45m",
@@ -226,7 +223,6 @@ const SIMULATED_PROJECTS: NexusProjectData[] = [
   {
     id: "forge",
     name: "forge-cli",
-    repo: "github.com/nikhi20-900/forge-agent",
     branch: "feat/inspect-gate",
     commitHash: "7f13d8 · illustrative commit",
     commitMsg: "feat(pipeline): enforce directory inspection before diff proposal",
@@ -376,12 +372,12 @@ export function NexusFeatured() {
             <span>DEVOPS / AUTOMATION / DEVELOPER INFRASTRUCTURE</span>
           </div>
           <div className="flex items-center gap-2 font-mono text-xs">
-            <span className="px-3 py-0.5 rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/30 font-bold flex items-center gap-1.5">
+            <span className="px-3 py-0.5 rounded-full font-bold flex items-center gap-1.5 border badge-building">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
               BUILDING
             </span>
             <span className="px-2.5 py-0.5 rounded bg-white/[0.04] text-[#9ba1a6] border border-white/[0.08] text-[11px]">
-              CONCEPT · ARCHITECTURE PROTOTYPE
+              IN ACTIVE DEVELOPMENT · SIMULATED PIPELINE
             </span>
           </div>
         </div>
@@ -443,7 +439,7 @@ export function NexusFeatured() {
                   onMouseEnter={() => setActiveLifecycleIndex(idx)}
                   className={`p-3.5 rounded-xl text-left transition-all border flex flex-col justify-between min-h-[120px] cursor-pointer ${
                     isSelected
-                      ? "bg-[#181d29] border-orange-500/60 shadow-lg scale-[1.02]"
+                      ? "bg-[#181d29] border-orange-500/60 shadow-lg"
                       : "bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.05] opacity-75 hover:opacity-100"
                   }`}
                 >
@@ -530,7 +526,7 @@ export function NexusFeatured() {
             {/* Strict Authenticity Label */}
             <div className="text-[10px] font-mono text-amber-400 uppercase tracking-wider px-2.5 py-1 rounded bg-amber-950/30 border border-amber-800/40 flex items-center gap-1.5 font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-              <span>CONCEPT / BUILDING · SIMULATED CI/CD</span>
+              <span>PROTOTYPE · SIMULATED CI/CD</span>
             </div>
           </div>
 

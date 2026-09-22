@@ -12,20 +12,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/* Deployed domain from README — do not invent alternate domains */
+const SITE_URL = "https://nikhil-portfolio-rose.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Nikhil Chhetri | Frontend & Full-Stack Developer · AI & Robotics",
+  metadataBase: new URL(SITE_URL),
+  title: "Nikhil Chhetri — Developer Building AI, Robotics & Full-Stack Systems",
   description:
-    "Portfolio of Nikhil Chhetri, BCA student at Dayananda Sagar University (DSU), Bangalore. Building real-world applications, intelligent systems, and innovative solutions through code, AI, and robotics.",
+    "Portfolio of Nikhil Chhetri, BCA student and builder in Bangalore. Selected work across AI systems, graph-based fraud investigation, autonomous robotics, civic tech, and full-stack products — with source and honest status labels.",
   keywords: [
     "Nikhil Chhetri",
-    "Frontend Developer",
     "Full-Stack Developer",
-    "AI & Robotics",
+    "AI Systems",
+    "Robotics",
     "ROS 2",
     "NAVIGEN",
-    "IoT",
+    "Fraud Investigation Agent",
+    "SchemeSaathi",
     "Next.js",
-    "React",
     "Bangalore",
     "Dayananda Sagar University",
   ],
@@ -34,17 +38,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nikhilchhetri.dev",
-    title: "Nikhil Chhetri | Frontend & Full-Stack Developer · AI & Robotics",
-    description:
-      "Building real-world applications, intelligent systems, and innovative solutions through code, AI, and robotics.",
+    url: SITE_URL,
     siteName: "Nikhil Chhetri Portfolio",
+    title: "Nikhil Chhetri — Developer Building AI, Robotics & Full-Stack Systems",
+    description:
+      "Selected engineering work: AI systems, autonomous robotics, civic tech, and full-stack products — with architecture, source, and honest BUILT / BUILDING status.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nikhil Chhetri | Frontend & Full-Stack Developer · AI & Robotics",
+    title: "Nikhil Chhetri — Developer Building AI, Robotics & Full-Stack Systems",
     description:
-      "Building real-world applications, intelligent systems, and innovative solutions through code, AI, and robotics.",
+      "Selected engineering work: AI systems, autonomous robotics, civic tech, and full-stack products — with architecture, source, and honest status.",
   },
   icons: {
     icon: "/favicon.ico",
@@ -61,7 +65,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
     >
-      <body className="min-h-screen bg-[#06080f] text-slate-100 antialiased selection:bg-cyan-500/20 selection:text-cyan-200">
+      <body className="min-h-screen bg-background text-foreground antialiased">
         {children}
       </body>
     </html>

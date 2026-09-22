@@ -29,7 +29,7 @@ const BUILD_NOTES: BuildNote[] = [
     id: "ros2",
     topic: "ROS 2 & Robotics",
     status: "BUILDING",
-    statusColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
+    statusColor: "badge-building",
     icon: Compass,
     question: "How do node lifecycles and DDS topics translate simulation into physical motors?",
     bulletPoints: [
@@ -44,7 +44,7 @@ const BUILD_NOTES: BuildNote[] = [
     id: "cv",
     topic: "Computer Vision",
     status: "EXPLORING",
-    statusColor: "text-amber-400 bg-amber-950/40 border-amber-800/40",
+    statusColor: "badge-exploring",
     icon: Eye,
     question: "How do we extract clean navigation boundaries from noisy outdoor camera feeds?",
     bulletPoints: [
@@ -59,7 +59,7 @@ const BUILD_NOTES: BuildNote[] = [
     id: "nextjs",
     topic: "Next.js & React",
     status: "EXPLORING",
-    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    statusColor: "badge-exploring",
     icon: Layers,
     question: "Where should Server Components end and Client interactivity begin?",
     bulletPoints: [
@@ -74,7 +74,7 @@ const BUILD_NOTES: BuildNote[] = [
     id: "nodejs",
     topic: "Node.js & Backend",
     status: "EXPLORING",
-    statusColor: "text-blue-400 bg-blue-950/40 border-blue-800/40",
+    statusColor: "badge-exploring",
     icon: Cpu,
     question: "How do we manage high-frequency data streams without choking the event loop?",
     bulletPoints: [
@@ -89,7 +89,7 @@ const BUILD_NOTES: BuildNote[] = [
     id: "agents",
     topic: "AI Agents & Tooling",
     status: "BUILDING",
-    statusColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
+    statusColor: "badge-building",
     icon: Bot,
     question: "How do we give LLMs terminal tools while keeping code generation grounded?",
     bulletPoints: [
@@ -104,7 +104,7 @@ const BUILD_NOTES: BuildNote[] = [
     id: "realtime",
     topic: "Real-Time Systems",
     status: "EXPLORING",
-    statusColor: "text-amber-400 bg-amber-950/40 border-amber-800/40",
+    statusColor: "badge-exploring",
     icon: Radio,
     question: "How do we make multi-user collaboration feel instant across high latency?",
     bulletPoints: [
@@ -119,7 +119,7 @@ const BUILD_NOTES: BuildNote[] = [
     id: "fullstack",
     topic: "Full-Stack Architecture",
     status: "EXPLORING",
-    statusColor: "text-purple-400 bg-purple-950/40 border-purple-800/40",
+    statusColor: "badge-exploring",
     icon: Workflow,
     question: "How do we design applications that grow beyond simple CRUD databases?",
     bulletPoints: [
@@ -138,7 +138,7 @@ export function BuildNotes() {
   const Icon = activeNote.icon;
 
   return (
-    <section id="notes" className="py-24 md:py-36 relative overflow-hidden">
+    <section id="notes" className="py-20 md:py-28 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]">
@@ -178,7 +178,7 @@ export function BuildNotes() {
                 onClick={() => setActiveNoteId(note.id)}
                 className={`px-4 py-2 rounded-xl text-xs font-mono transition-all border flex items-center gap-2 cursor-pointer ${
                   isSelected
-                    ? "bg-[#181d29] text-[#f5f4ef] font-bold border-orange-500/60 shadow-lg scale-[1.02]"
+                    ? "bg-[#181d29] text-[#f5f4ef] font-bold border-orange-500/60 shadow-lg"
                     : "bg-[#0d0f14]/80 text-[#9ba1a6] hover:text-[#f5f4ef] border-white/[0.06] hover:bg-white/[0.04]"
                 }`}
               >

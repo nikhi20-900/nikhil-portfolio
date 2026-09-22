@@ -17,7 +17,7 @@ export function Footer() {
               NIKHIL CHHETRI
             </span>
             <p className="text-xs sm:text-sm font-mono text-[#9ba1a6]">
-              Frontend / Full-Stack Developer · AI &amp; Robotics Enthusiast
+              Developer · AI &amp; Robotics · Full-Stack Systems
             </p>
             <p className="text-xs font-mono text-[#9ba1a6] mt-1">Bangalore · India</p>
           </div>

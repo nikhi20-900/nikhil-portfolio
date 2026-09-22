@@ -51,10 +51,10 @@ export function HowIBuild() {
   const [activeStep, setActiveStep] = useState<number>(0);
 
   return (
-    <section id="process" className="py-24 md:py-36 relative">
+    <section id="process" className="py-20 md:py-28 relative">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Header (Level 02 Heading) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-6 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12 pb-5 border-b border-white/[0.08]">
           <div>
             <div className="text-xs font-mono text-[#9ba1a6] uppercase tracking-widest mb-2 flex items-center gap-2">
               <span className="text-orange-400 font-bold">05 /</span>
@@ -86,7 +86,7 @@ export function HowIBuild() {
                 onMouseEnter={() => setActiveStep(idx)}
                 className={`p-6 rounded-2xl text-left transition-all duration-300 border flex flex-col justify-between ${
                   isSelected
-                    ? "bg-[#181d29] border-orange-500/60 shadow-xl scale-[1.03] opacity-100 ring-1 ring-orange-500/20"
+                    ? "bg-[#181d29] border-orange-500/60 shadow-xl opacity-100 ring-1 ring-orange-500/20"
                     : isPast
                     ? "bg-[#101219]/40 border-white/[0.04] opacity-50 hover:opacity-85 hover:bg-[#141720]"
                     : "bg-[#101219]/25 border-white/[0.03] opacity-35 hover:opacity-75 hover:bg-[#141720]"
@@ -145,7 +145,7 @@ export function HowIBuild() {
 
           <div className="shrink-0 font-mono text-xs text-[#9ba1a6] p-4 rounded-xl bg-[#090b10] border border-white/[0.06]">
             <div>METHOD: VIBE &amp; REFINE</div>
-            <div className="text-emerald-400 mt-1">STATUS: VELOCITY + CODE UNDERSTANDING</div>
+            <div className="text-[#84a98c] mt-1">STATUS: VELOCITY + CODE UNDERSTANDING</div>
           </div>
         </motion.div>
       </div>

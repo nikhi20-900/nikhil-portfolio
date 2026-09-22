@@ -30,10 +30,10 @@ export function ModernWorkflows() {
   const [activePipelineStep, setActivePipelineStep] = useState(2);
 
   return (
-    <section id="workflows" className="py-24 md:py-36 relative">
+    <section id="workflows" className="py-20 md:py-28 relative">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 pb-6 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12 pb-5 border-b border-white/[0.08]">
           <div>
             <div className="text-xs font-mono text-orange-500 uppercase tracking-widest mb-2 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
@@ -83,7 +83,7 @@ export function ModernWorkflows() {
 
             <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-[#9ba1a6]">
               <span>Review before shipping</span>
-              <span className="text-emerald-400 font-semibold">Human in the loop</span>
+              <span className="text-[#84a98c] font-semibold">Human in the loop</span>
             </div>
           </div>
 
@@ -91,7 +91,7 @@ export function ModernWorkflows() {
           <div className="p-7 sm:p-9 rounded-2xl bg-[#11141d] border border-white/[0.08] hover:border-white/[0.18] transition-all flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#84a98c]">
                   <Workflow className="w-4 h-4" />
                   <span>MULTI-STEP ORCHESTRATION</span>
                 </div>
@@ -104,7 +104,7 @@ export function ModernWorkflows() {
                 AGENTIC WORKFLOWS
               </h3>
 
-              <div className="text-xs font-mono text-emerald-400/90 mb-4">
+              <div className="text-xs font-mono text-[#84a98c]/90 mb-4">
                 AI Agents · Task Automation · Multi-Agent Workflows · Tool Calling
               </div>
 
@@ -164,7 +164,7 @@ export function ModernWorkflows() {
               <div className="p-4 rounded-xl bg-[#090b10] border border-white/[0.08] font-mono text-xs space-y-3 mb-4">
                 <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[11px] text-[#9ba1a6]">
                   <span>bash · zsh · linux</span>
-                  <span className="text-emerald-400">STATUS: READY</span>
+                  <span className="text-[#84a98c]">STATUS: READY</span>
                 </div>
 
                 <div className="space-y-1.5">
@@ -184,7 +184,7 @@ export function ModernWorkflows() {
                   ))}
                 </div>
 
-                <div className="pt-2 border-t border-white/[0.06] text-[11px] text-emerald-400">
+                <div className="pt-2 border-t border-white/[0.06] text-[11px] text-[#84a98c]">
                   › {selectedCmd.output}
                 </div>
               </div>

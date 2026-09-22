@@ -20,7 +20,7 @@ export function ChapterTransition({
   substatement,
 }: ChapterTransitionProps) {
   return (
-    <div className="py-16 md:py-24 relative overflow-hidden">
+    <div className="py-12 md:py-16 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col items-center text-center space-y-6">
           {/* Subtle Vertical Flow Line */}
@@ -30,7 +30,7 @@ export function ChapterTransition({
           </div>
 
           {/* Chapters indicator */}
-          <div className="flex items-center gap-3 text-[11px] font-mono text-[#9ba1a6] uppercase tracking-widest">
+          <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] font-mono text-[#9ba1a6] uppercase tracking-widest">
             <span>{fromNumber} {fromTitle}</span>
             <span className="text-white/20">→</span>
             <span className="text-orange-400 font-semibold">{toNumber} {toTitle}</span>
@@ -49,7 +49,7 @@ export function ChapterTransition({
 
           {/* Subtle down flow arrow */}
           <div className="pt-2">
-            <ArrowDown className="w-4 h-4 text-white/30 animate-bounce" />
+            <ArrowDown className="w-4 h-4 text-white/30" />
           </div>
         </div>
       </div>

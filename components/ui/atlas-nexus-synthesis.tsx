@@ -76,7 +76,7 @@ export function AtlasNexusSynthesis() {
             <span className="text-[10px] font-mono text-[#9ba1a6]/80 tracking-widest uppercase">
               Next: What happens when these systems fail?
             </span>
-            <ArrowDown className="w-4 h-4 text-orange-400/60 animate-bounce mt-1" />
+            <ArrowDown className="w-4 h-4 text-orange-400/60 mt-1" />
           </div>
         </div>
       </div>

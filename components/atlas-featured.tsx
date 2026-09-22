@@ -264,49 +264,49 @@ const ATLAS_EXPLORATION_AREAS = [
   {
     name: "Document Ingestion",
     status: "EXPLORING",
-    statusColor: "text-amber-400 bg-amber-950/40 border-amber-800/40",
+    statusColor: "badge-exploring",
     desc: "Parsing varied formats (PDF, Markdown, text) into clean normalized text streams.",
   },
   {
     name: "Chunking Strategies",
     status: "EXPLORING",
-    statusColor: "text-amber-400 bg-amber-950/40 border-amber-800/40",
+    statusColor: "badge-exploring",
     desc: "Evaluating fixed-size token windows vs semantic sentence and paragraph splitting.",
   },
   {
     name: "Embeddings & Vectors",
     status: "EXPLORING",
-    statusColor: "text-amber-400 bg-amber-950/40 border-amber-800/40",
+    statusColor: "badge-exploring",
     desc: "Understanding dense representations and mathematical cosine distance mapping.",
   },
   {
     name: "Semantic Retrieval",
     status: "EXPLORING",
-    statusColor: "text-amber-400 bg-amber-950/40 border-amber-800/40",
+    statusColor: "badge-exploring",
     desc: "Combining keyword BM25 with vector similarity for hybrid document search.",
   },
   {
     name: "Vector Search Concepts",
     status: "PLANNED",
-    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    statusColor: "badge-exploring",
     desc: "Researching index structures like HNSW for fast k-nearest-neighbor lookups.",
   },
   {
     name: "Context Construction",
     status: "BUILDING",
-    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    statusColor: "badge-building",
     desc: "Budgeting prompts with only the highest-scoring chunks to avoid context dilution.",
   },
   {
     name: "Grounded Generation",
     status: "BUILDING",
-    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    statusColor: "badge-building",
     desc: "Constraining synthesis strictly to provided evidence passages with zero extrapolation.",
   },
   {
     name: "Source Attribution",
     status: "BUILDING",
-    statusColor: "text-orange-400 bg-orange-950/40 border-orange-800/40",
+    statusColor: "badge-building",
     desc: "Deterministic mapping from each output sentence back to verifiable chunk excerpts.",
   },
 ];
@@ -336,12 +336,12 @@ export function AtlasFeatured() {
             <span>AI / RAG / KNOWLEDGE SYSTEMS</span>
           </div>
           <div className="flex items-center gap-2 font-mono text-xs">
-            <span className="px-3 py-0.5 rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/30 font-bold flex items-center gap-1.5">
+            <span className="px-3 py-0.5 rounded-full font-bold flex items-center gap-1.5 border badge-building">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
               BUILDING
             </span>
             <span className="px-2.5 py-0.5 rounded bg-white/[0.04] text-[#9ba1a6] border border-white/[0.08] text-[11px]">
-              CONCEPT · ARCHITECTURE PROTOTYPE
+              IN ACTIVE DEVELOPMENT · PROTOTYPE UI
             </span>
           </div>
         </div>
@@ -404,7 +404,7 @@ export function AtlasFeatured() {
                   onMouseEnter={() => setActivePipelineIndex(idx)}
                   className={`p-3 rounded-xl text-left transition-all border flex flex-col justify-between min-h-[115px] cursor-pointer ${
                     isSelected
-                      ? "bg-[#181d29] border-orange-500/60 shadow-lg scale-[1.02]"
+                      ? "bg-[#181d29] border-orange-500/60 shadow-lg"
                       : "bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.05] opacity-75 hover:opacity-100"
                   }`}
                 >
@@ -491,7 +491,7 @@ export function AtlasFeatured() {
             {/* Strict Authenticity Label */}
             <div className="text-[10px] font-mono text-amber-400 uppercase tracking-wider px-2.5 py-1 rounded bg-amber-950/30 border border-amber-800/40 flex items-center gap-1.5 font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-              <span>CONCEPT / BUILDING · SIMULATED RETRIEVAL</span>
+              <span>CONCEPT · SIMULATED RETRIEVAL</span>
             </div>
           </div>
 
