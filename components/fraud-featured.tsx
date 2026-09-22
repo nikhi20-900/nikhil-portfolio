@@ -161,15 +161,22 @@ export function FraudFeatured() {
           <svg
             viewBox="0 0 720 240"
             role="img"
-            aria-labelledby="fraud-graph-title fraud-graph-desc"
+            aria-label="Fraud graph topology: Customer connects to Account, Account to Transaction, and Transaction to Merchant, IP, and Device. A dashed edge from Customer B to the same Device marks a shared-device fraud ring."
             className="hidden sm:block w-full h-auto"
           >
-            <title id="fraud-graph-title">Fraud graph topology</title>
-            <desc id="fraud-graph-desc">
-              Customer connects to Account, Account to Transaction, and Transaction to Device,
-              IP, and Merchant. A dashed edge from a second Customer to the same Device marks a
-              shared-device fraud ring.
-            </desc>
+            <defs>
+              <marker
+                id="fraud-arrow-orange"
+                viewBox="0 0 8 8"
+                refX="6"
+                refY="4"
+                markerWidth="5"
+                markerHeight="5"
+                orient="auto-start-reverse"
+              >
+                <path d="M 0 1 L 6 4 L 0 7 z" fill="#ea580c" />
+              </marker>
+            </defs>
 
             {/* Solid edges */}
             <g stroke="#9ba1a6" strokeOpacity="0.45" strokeWidth="1.5" fill="none">
@@ -177,16 +184,17 @@ export function FraudFeatured() {
               <line x1="302" y1="120" x2="380" y2="120" />
               <line x1="486" y1="120" x2="560" y2="48" />
               <line x1="486" y1="120" x2="560" y2="120" />
-              <line x1="486" y1="120" x2="560" y2="192" />
+              <line x1="486" y1="120" x2="560" y2="180" />
             </g>
 
             {/* Dashed terracotta: second customer shares the same device */}
             <path
-              d="M 80 196 C 80 232, 640 232, 640 172"
+              d="M 136 196 C 230 224, 466 224, 554 200"
               stroke="#ea580c"
               strokeWidth="1.5"
-              strokeDasharray="6 5"
+              strokeDasharray="6 4"
               fill="none"
+              markerEnd="url(#fraud-arrow-orange)"
             />
 
             {/* Nodes */}
@@ -203,34 +211,55 @@ export function FraudFeatured() {
               <rect x="380" y="96" width="106" height="48" rx="8" fill="#13161c" stroke="rgba(245,244,239,0.18)" />
               <text x="433" y="125" textAnchor="middle" fill="#f5f4ef">Transaction</text>
 
-              {/* Device */}
-              <rect x="560" y="24" width="80" height="48" rx="8" fill="#13161c" stroke="rgba(245,244,239,0.18)" />
-              <text x="600" y="53" textAnchor="middle" fill="#f5f4ef">Device</text>
+              {/* Merchant (top leaf) */}
+              <rect x="560" y="24" width="84" height="48" rx="8" fill="#13161c" stroke="rgba(245,244,239,0.18)" />
+              <text x="602" y="53" textAnchor="middle" fill="#f5f4ef">Merchant</text>
 
-              {/* IP */}
-              <rect x="560" y="96" width="80" height="48" rx="8" fill="#13161c" stroke="rgba(245,244,239,0.18)" />
-              <text x="600" y="125" textAnchor="middle" fill="#f5f4ef">IP</text>
+              {/* IP (middle leaf) */}
+              <rect x="560" y="96" width="84" height="48" rx="8" fill="#13161c" stroke="rgba(245,244,239,0.18)" />
+              <text x="602" y="125" textAnchor="middle" fill="#f5f4ef">IP</text>
 
-              {/* Merchant */}
-              <rect x="560" y="168" width="80" height="48" rx="8" fill="#13161c" stroke="rgba(245,244,239,0.18)" />
-              <text x="600" y="197" textAnchor="middle" fill="#f5f4ef">Merchant</text>
+              {/* Device (bottom leaf — shared entity in the fraud ring) */}
+              <rect x="560" y="168" width="84" height="48" rx="8" fill="#13161c" stroke="#ea580c" strokeOpacity="0.6" />
+              <text x="602" y="191" textAnchor="middle" fill="#f5f4ef">Device</text>
+              <text x="602" y="205" textAnchor="middle" fill="#ea580c" fontSize="9">shared entity</text>
 
               {/* Second customer on the ring (dashed path origin) */}
-              <rect x="24" y="172" width="112" height="48" rx="8" fill="#13161c" stroke="#ea580c" strokeOpacity="0.55" />
-              <text x="80" y="195" textAnchor="middle" fill="#ea580c" fontSize="10">Customer B</text>
-              <text x="80" y="209" textAnchor="middle" fill="#9ba1a6" fontSize="9">shared device</text>
+              <rect x="24" y="168" width="112" height="48" rx="8" fill="#13161c" stroke="#ea580c" strokeOpacity="0.6" />
+              <text x="80" y="191" textAnchor="middle" fill="#ea580c" fontSize="11" fontWeight="bold">Customer B</text>
+              <text x="80" y="205" textAnchor="middle" fill="#9ba1a6" fontSize="9">shared device</text>
 
-              {/* Legend for the dashed edge */}
-              <text x="360" y="228" textAnchor="middle" fill="#ea580c" fontSize="10">
-                ── shared device → SHARED_DEVICE_RING
-              </text>
+              {/* Legend badge for the dashed edge — solid fill occludes path behind it cleanly */}
+              <g>
+                <rect
+                  x="218"
+                  y="205"
+                  width="260"
+                  height="22"
+                  rx="11"
+                  fill="#090b10"
+                  stroke="#ea580c"
+                  strokeOpacity="0.45"
+                />
+                <text
+                  x="348"
+                  y="220"
+                  textAnchor="middle"
+                  fill="#ea580c"
+                  fontSize="10"
+                  fontWeight="600"
+                  letterSpacing="0.02em"
+                >
+                  shared device → SHARED_DEVICE_RING
+                </text>
+              </g>
             </g>
           </svg>
 
           {/* Mobile: stacked fallback (visible text, screen-reader accessible) */}
           <ul className="sm:hidden space-y-2 text-xs font-mono text-[#9ba1a6]">
             <li className="text-[#f5f4ef]">Customer → Account → Transaction</li>
-            <li className="text-[#f5f4ef]">Transaction → Device · IP · Merchant</li>
+            <li className="text-[#f5f4ef]">Transaction → Merchant · IP · Device</li>
             <li className="text-orange-400">
               Customer B ┄┄ Device (shared device → SHARED_DEVICE_RING)
             </li>
