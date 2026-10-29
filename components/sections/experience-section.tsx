@@ -3,73 +3,79 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Milestone, Trophy, GraduationCap, GitPullRequest } from "lucide-react";
+import { Trophy, GraduationCap, GitPullRequest, Award } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-interface TimelineItem {
+interface MilestoneItem {
   year: string;
-  badge: string;
-  role: string;
+  category: "HACKATHONS & INNOVATION" | "ACADEMIC" | "INDEPENDENT SYSTEMS" | "COMPETITIVE SPRINTS";
+  title: string;
   organization: string;
   icon: React.ElementType;
-  description: string;
-  points: string[];
+  summary: string;
+  verifiedDetails: string[];
 }
 
-const TIMELINE: TimelineItem[] = [
+const MILESTONES: MilestoneItem[] = [
   {
     year: "2025",
-    badge: "COMPETITION / NATIONAL FINALIST",
-    role: "Robotics & Perception Lead · NAVIGEN",
+    category: "HACKATHONS & INNOVATION",
+    title: "Robotics & Perception Lead · NAVIGEN",
     organization: "Smart India Hackathon 2025",
     icon: Trophy,
-    description: "Designed, engineered, and demonstrated autonomous navigation for unmanned ground vehicles over unpredictable outdoor obstacles.",
-    points: [
-      "Built custom ROS 2 nodes for edge vision obstacle classification",
-      "Integrated ultrasonic array + camera costmaps into Nav2 stack",
-      "Achieved sub-45ms closed-loop hardware actuation via ESP32 PWM bridge",
-    ],
-  },
-  {
-    year: "2025",
-    badge: "RESEARCH & AGENTIC ARCHITECTURE",
-    role: "Graph & Autonomous Systems Architect",
-    organization: "Independent Systems Engineering",
-    icon: Milestone,
-    description: "Architected end-to-end fraud investigation agent on TigerGraph GSQL and LangGraph cyclical state machines.",
-    points: [
-      "Authored 6 deep graph inspection queries over 7 entity types",
-      "Engineered deterministic uncertainty scoring to prevent hallucination",
-      "Packaged high-performance React investigation cockpit with frozen audit trails",
+    summary:
+      "Engineered an autonomous navigation stack for an Unmanned Ground Vehicle (UGV) operating in outdoor environments using computer vision and edge microcontrollers.",
+    verifiedDetails: [
+      "Physical UGV running Raspberry Pi (high-level compute) + ESP32 (motor control)",
+      "30 FPS edge obstacle segmentation using OpenCV contour detection",
+      "Nav2 path planning algorithm and pure-pursuit closed-loop differential motor drive",
+      "Demonstrated working physical hardware under hackathon constraints",
     ],
   },
   {
     year: "2023 - 2026",
-    badge: "ACADEMICS",
-    role: "Bachelor of Computer Applications (BCA)",
-    organization: "Dayananda Sagar University, Bangalore",
+    category: "ACADEMIC",
+    title: "Bachelor of Computer Applications (BCA)",
+    organization: "Dayananda Sagar University (DSU), Bangalore",
     icon: GraduationCap,
-    description: "Rigorous focus on computer systems, discrete algorithms, data mining, and distributed software engineering.",
-    points: [
-      "Conducted UCI Student Performance data mining & clustering research",
-      "Led technical project teams across full-stack and systems engineering",
-      "Active participant in collegiate hackathons and tech symposiums",
+    summary:
+      "Undergraduate computer science and application coursework focusing on algorithms, database systems, data structures, and statistical computing.",
+    verifiedDetails: [
+      "Core computing curriculum: DBMS, OOP, Computer Architecture, Data Mining",
+      "Conducted research case study on UCI Student Performance dataset (reproducible notebook published)",
+      "Led technical project teams across software development and hardware prototyping",
     ],
   },
   {
     year: "2024 - 2025",
-    badge: "OPEN SOURCE & TOOLING",
-    role: "Developer Tooling Engineer",
-    organization: "Forge CLI & Modern Workflows",
+    category: "INDEPENDENT SYSTEMS",
+    title: "Graph & Autonomous Systems Architecture",
+    organization: "Independent Open Source Projects",
     icon: GitPullRequest,
-    description: "Pioneered autonomous CLI agent orchestration tools with 8-stage state verification loops.",
-    points: [
-      "Engineered terminal UI state machines with live shell process hooks",
-      "Implemented modular RAG indexing for swift local documentation lookups",
-      "Promoted architecture-first engineering practices in open repositories",
+    summary:
+      "Researched and implemented graph-native investigation patterns and agentic developer tooling with deterministic verification layers.",
+    verifiedDetails: [
+      "Built Fraud Investigation Agent on TigerGraph GSQL and LangGraph cyclical state loops",
+      "Authored 6 heuristic graph pattern detectors across 7 entity types (public repository)",
+      "Designed SchemeSaathi phase 1 scaffold separating LLM language parsing from rules verification",
+      "Constructed LPG Gas Leakage real-time IoT dashboard connected to MQ-6 physical sensors",
+    ],
+  },
+  {
+    year: "2023 - 2024",
+    category: "COMPETITIVE SPRINTS",
+    title: "Collegiate & Global Hackathon Sprints",
+    organization: "NASA Challenge & Inter-College Competitions",
+    icon: Award,
+    summary:
+      "Participated in multidisciplinary hackathon sprints solving innovation challenges under strict time and technical constraints.",
+    verifiedDetails: [
+      "Participated in NASA Challenge Hackathon working collaboratively in multidisciplinary team",
+      "Engaged in collegiate technical hackathons translating problem statements into working prototypes",
+      "Gained critical practical experience in rapid architecture validation and live technical presentation",
     ],
   },
 ];
@@ -95,6 +101,7 @@ export function ExperienceSection() {
       });
       return;
     }
+
     gsap.fromTo(
       lineRef.current,
       { scaleY: 0 },
@@ -110,19 +117,18 @@ export function ExperienceSection() {
       }
     );
 
-    // Light up nodes as they enter view
     nodes.forEach((node) => {
       gsap.fromTo(
         node,
-        { opacity: 0.25, x: 20 },
+        { opacity: 0.3, y: 15 },
         {
           opacity: 1,
-          x: 0,
-          duration: 0.8,
-          ease: "power3.out",
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: node,
-            start: "top 80%",
+            start: "top 82%",
             toggleActions: "play none none reverse",
           },
         }
@@ -139,90 +145,79 @@ export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="relative min-h-screen w-full px-6 sm:px-12 md:px-16 py-32 z-10 border-t divider-subtle"
+      className="relative w-full px-5 sm:px-8 md:px-12 py-24 sm:py-32 z-10 border-t divider-subtle"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b divider-subtle pb-6 mb-16 gap-4">
-          <span className="font-mono text-xs tracking-widest text-[#8E8E99] uppercase">
-            [05 // TRACK RECORD & TIMELINE]
-          </span>
-          <span className="font-mono text-xs tracking-wider text-accent uppercase">
-            EXPERIENCE & MILESTONES
-          </span>
-        </div>
-
-        {/* Section Title */}
-        <div className="mb-20">
-          <span className="font-mono text-5xl sm:text-7xl font-light text-white/20">
-            05
-          </span>
-          <h2 className="type-h1 text-[#EDEDED] uppercase mt-2">
-            CHRONOLOGY.
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#8E8E99] max-w-2xl">
-            Key milestones where technical architecture met production deadlines, national stages,
-            and real academic rigor.
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b divider-subtle pb-6 mb-12 sm:mb-16 gap-4">
+          <div>
+            <div className="flex items-center gap-2 font-mono text-xs tracking-widest text-[#a6a69f] uppercase mb-2">
+              <span className="text-[#f97316] font-bold">04 /</span>
+              <span>EXPERIENCE &amp; JOURNEY</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#f5f4ef] tracking-tight">
+              VERIFIED TRACK RECORD.
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm font-mono text-[#a6a69f] max-w-sm">
+            Distinct milestones across hardware hackathons, academic foundations, and open-source systems.
           </p>
         </div>
 
-        {/* Timeline Container with Scroll-Drawn Center/Left Line */}
-        <div ref={containerRef} className="relative pl-6 sm:pl-10">
-          {/* Background track */}
-          <div className="absolute top-0 bottom-0 left-[11px] sm:left-[19px] w-[2px] bg-white/10" />
+        {/* Timeline Container */}
+        <div ref={containerRef} className="relative pl-4 sm:pl-8">
+          {/* Vertical Track Line */}
+          <div className="absolute top-2 bottom-2 left-[7px] sm:left-[15px] w-[2px] bg-white/[0.08]" />
 
-          {/* Active Drawn Line */}
+          {/* Active Scroll-Drawn Line in Terracotta */}
           <div
             ref={lineRef}
-            className="absolute top-0 bottom-0 left-[11px] sm:left-[19px] w-[2px] bg-accent origin-top shadow-[0_0_15px_#00f0ff]"
+            className="absolute top-2 bottom-2 left-[7px] sm:left-[15px] w-[2px] bg-[#f97316] origin-top"
             style={{ transform: "scaleY(0)" }}
           />
 
-          {/* Timeline Nodes */}
-          <div className="space-y-16">
-            {TIMELINE.map((item, idx) => {
+          {/* Milestone Items */}
+          <div className="space-y-10 sm:space-y-12">
+            {MILESTONES.map((item, idx) => {
               const Icon = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="timeline-node relative pl-8 sm:pl-12 group"
-                >
-                  {/* Glowing Node Dot */}
-                  <div className="absolute -left-[5px] sm:-left-[3px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#0A0A0B] border-2 border-accent shadow-[0_0_10px_#00f0ff] group-hover:scale-125 transition-transform" />
 
-                  {/* Card Body */}
-                  <div className="p-8 rounded-3xl bg-[#121215]/85 border border-white/10 backdrop-blur-md group-hover:border-accent/40 transition-colors">
-                    <div className="flex flex-wrap items-center justify-between gap-4 border-b divider-subtle pb-4 mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-accent/10 text-accent">
+              return (
+                <div key={idx} className="timeline-node relative pl-6 sm:pl-10">
+                  {/* Glowing Node Marker */}
+                  <div className="absolute -left-[3px] sm:-left-[1px] top-2 w-3.5 h-3.5 rounded-full bg-[#0d0f14] border-2 border-[#f97316]" />
+
+                  {/* Card Content */}
+                  <div className="p-6 sm:p-8 rounded-2xl bg-[#13161e] border border-white/[0.08] hover:border-white/[0.18] transition-colors">
+                    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.06] pb-3 mb-4">
+                      <div className="flex items-center gap-2.5">
+                        <div className="p-1.5 rounded-lg bg-white/[0.03] text-[#f97316]">
                           <Icon className="w-4 h-4" />
                         </div>
-                        <span className="font-mono text-xs font-bold text-accent uppercase">
-                          {item.badge}
+                        <span className="font-mono text-xs font-bold text-[#f97316] tracking-wider uppercase">
+                          {item.category}
                         </span>
                       </div>
-                      <span className="font-mono text-xs text-[#8E8E99]">
-                        {item.year}
-                      </span>
+                      <span className="font-mono text-xs text-[#a6a69f]">{item.year}</span>
                     </div>
 
-                    <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#EDEDED] mb-1">
-                      {item.role}
+                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#f5f4ef] mb-1">
+                      {item.title}
                     </h3>
-                    <p className="font-mono text-xs text-[#8E8E99] uppercase mb-4">
+
+                    <p className="font-mono text-xs text-[#84a98c] uppercase tracking-wider mb-3">
                       {item.organization}
                     </p>
 
-                    <p className="text-sm text-[#8E8E99] leading-relaxed mb-6">
-                      {item.description}
+                    <p className="text-xs sm:text-sm text-[#a6a69f] leading-relaxed mb-5 font-light">
+                      {item.summary}
                     </p>
 
-                    {/* Bullet Highlights */}
-                    <ul className="space-y-2 font-mono text-xs text-[#EDEDED]/80">
-                      {item.points.map((pt, pIdx) => (
-                        <li key={pIdx} className="flex items-center gap-2.5">
-                          <span className="text-accent">▹</span>
-                          <span>{pt}</span>
+                    {/* Verified Details */}
+                    <ul className="space-y-2 font-mono text-xs text-[#f5f4ef]/85">
+                      {item.verifiedDetails.map((detail, dIdx) => (
+                        <li key={dIdx} className="flex items-start gap-2.5">
+                          <span className="text-[#f97316] shrink-0 font-bold">›</span>
+                          <span>{detail}</span>
                         </li>
                       ))}
                     </ul>
@@ -236,4 +231,3 @@ export function ExperienceSection() {
     </section>
   );
 }
-

@@ -1,7 +1,8 @@
 # UI/UX References & Interaction Blueprints
 
 Central reference for all interaction upgrades across the portfolio.
-- **Theme**: Dark near-black (`#0A0A0B`), off-white typography (`#EDEDED`), Electric Cyan accent (`#00F0FF`).
+
+- **Theme**: Engineering Editorial — Charcoal (`#0D0F14`), Linen (`#F5F4EF`), Terracotta (`#F97316`), Sage (`#84A98C`).
 - **Stack**: Next.js 16 (App Router) + TypeScript + Tailwind CSS + GSAP / Lenis + React Three Fiber + Framer Motion.
 
 ---
@@ -22,7 +23,7 @@ Central reference for all interaction upgrades across the portfolio.
 ## ⚡ The 13 Interaction Blueprints
 
 | # | Interaction Module | Target Section / Component | Status |
-|---|-------------------|----------------------------|--------|
+| --- | ------------------- | ---------------------------- | -------- |
 | **01** | **Scroll-Expanding Hero Media** | `hero-section.tsx` | Ready to build |
 | **02** | **Multi-State Custom Cursor System** | `custom-cursor.tsx` + `useCursor()` | Foundation built, ready to expand |
 | **03** | **Magnetic & Sweep Hover Buttons** | `magnetic-button.tsx` | Built, ready for sweep effect |
@@ -30,10 +31,9 @@ Central reference for all interaction upgrades across the portfolio.
 | **05** | **Pinned Horizontal Scroll Gallery** | `work-section.tsx` | Ready to build |
 | **06** | **Reusable `<Reveal>` Text & Scramble** | `components/ui/reveal.tsx` | Built & Verified |
 | **07** | **Parallax & Zoom Storytelling** | `about-section.tsx` | Ready to build |
-| **08** | **Floating Dock / Expandable Navigation**| `components/ui/dock.tsx` | Built & Verified |
+| **08** | **Floating Dock / Expandable Navigation** | `components/ui/dock.tsx` | Built & Verified |
 | **09** | **Command Palette (⌘K) + Terminal Mode** | `components/ui/command-palette.tsx` | Built & Verified |
 | **10** | **Asset-Linked Preloader & Curtain** | `preloader.tsx` | Built |
 | **11** | **Cyan Route Curtain Transitions** | `app/template.tsx` | Ready to build |
 | **12** | **Reactive "LET'S TALK" Footer** | `contact-section.tsx` | Ready to build |
-| **13** | **Velocity & Scroll-Reactive Shader**| `components/three/scene-3d.tsx` | Built & ready to enhance |
-
+| **13** | **Velocity & Scroll-Reactive Shader** | `components/three/scene-3d.tsx` | Built & ready to enhance |

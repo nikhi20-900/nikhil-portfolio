@@ -31,7 +31,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
       return;
     }
 
-    const duration = 1400; // ms
+    const duration = 1000; // ms - fast, respectful
     const intervalTime = 20;
     const steps = duration / intervalTime;
     let step = 0;
@@ -47,7 +47,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
           setIsFinished(true);
           sessionStorage.setItem("preloader_shown", "true");
           onComplete?.();
-        }, 300);
+        }, 250);
       }
     }, intervalTime);
 
@@ -64,51 +64,51 @@ export function Preloader({ onComplete }: PreloaderProps) {
           initial={{ y: 0 }}
           exit={{
             y: "-100%",
-            transition: { duration: 0.8, ease: [0.87, 0, 0.13, 1] },
+            transition: { duration: 0.7, ease: [0.87, 0, 0.13, 1] },
           }}
-          className="fixed inset-0 z-50 flex flex-col justify-between bg-[#0A0A0B] p-8 sm:p-14 text-[#EDEDED]"
+          className="fixed inset-0 z-50 flex flex-col justify-between bg-[#0d0f14] p-8 sm:p-14 text-[#f5f4ef]"
         >
           {/* Top meta */}
-          <div className="flex items-center justify-between font-mono text-[11px] tracking-widest text-[#8E8E99] uppercase">
+          <div className="flex items-center justify-between font-mono text-[11px] tracking-widest text-[#a6a69f] uppercase">
             <span>Portfolio 2025</span>
-            <span className="text-accent flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              Initializing Scene
+            <span className="text-[#f97316] flex items-center gap-2 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f97316] animate-pulse" />
+              Initializing Architecture
             </span>
           </div>
 
           {/* Center Name & Identity Reveal */}
           <div className="max-w-4xl">
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-3"
             >
-              <p className="font-mono text-xs tracking-widest text-accent uppercase">
-                Systems & AI Engineer
+              <p className="font-mono text-xs tracking-widest text-[#f97316] uppercase font-semibold">
+                Full-Stack · AI Systems · Robotics
               </p>
-              <h1 className="text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-none text-white">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#f5f4ef]">
                 NIKHIL CHHETRI
               </h1>
             </motion.div>
           </div>
 
           {/* Bottom Counter & Bar */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div className="flex items-baseline justify-between font-mono">
-              <span className="text-xs tracking-wider text-[#8E8E99]">
-                LOADING EXPERIENCE
+              <span className="text-[11px] tracking-wider text-[#a6a69f]">
+                ENGINEERING EDITORIAL
               </span>
-              <span className="text-4xl sm:text-6xl font-light tracking-tight text-accent">
+              <span className="text-3xl sm:text-5xl font-light tracking-tight text-[#f97316]">
                 {progress < 10 ? `0${progress}` : progress}%
               </span>
             </div>
 
             {/* Precision 1px Progress Bar */}
-            <div className="w-full h-[2px] bg-white/10 overflow-hidden relative">
+            <div className="w-full h-[2px] bg-white/[0.08] overflow-hidden relative">
               <motion.div
-                className="absolute top-0 left-0 bottom-0 bg-accent"
+                className="absolute top-0 left-0 bottom-0 bg-[#f97316]"
                 style={{ width: `${progress}%` }}
                 transition={{ ease: "linear" }}
               />

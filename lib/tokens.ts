@@ -1,26 +1,27 @@
 export const TOKENS = {
   colors: {
-    background: "#0A0A0B",
-    foreground: "#EDEDED",
-    surface1: "#111113",
-    surface2: "#18181B",
-    surface3: "#222226",
-    surfaceBorder: "rgba(255, 255, 255, 0.08)",
-    accent: "#00F0FF", // Electric Cyan
-    accentGlow: "rgba(0, 240, 255, 0.15)",
-    muted: "#888891",
+    charcoal: "#0D0F14", // Primary dark background
+    linen: "#F5F4EF", // Primary light text / surface
+    terracotta: "#F97316", // Primary accent (warm terracotta)
+    terracottaLight: "#FB923C",
+    sage: "#84A98C", // Secondary accent (verified/shipped status)
+    muted: "#A6A69F", // Secondary text on dark surfaces
+    darkBorder: "#30312F", // Subtle dividers
+    lightBorder: "#DAD9D2",
+    surface1: "#12151C",
+    surface2: "#181C26",
+    surface3: "#222735",
   },
   typography: {
-    hero: "clamp(3.5rem, 11vw, 10.5rem)",
-    h1: "clamp(2.75rem, 7vw, 6.5rem)",
-    h2: "clamp(2rem, 4.5vw, 4rem)",
-    h3: "clamp(1.25rem, 2.5vw, 2.25rem)",
-    body: "clamp(0.95rem, 1.1vw, 1.15rem)",
-    mono: "clamp(0.75rem, 0.9vw, 0.875rem)",
+    hero: "clamp(2.75rem, 6.5vw, 5.5rem)",
+    h1: "clamp(2.25rem, 5vw, 4rem)",
+    h2: "clamp(1.75rem, 3.5vw, 3rem)",
+    h3: "clamp(1.2rem, 2vw, 1.85rem)",
+    body: "clamp(0.95rem, 1.05vw, 1.125rem)",
+    mono: "clamp(0.75rem, 0.85vw, 0.85rem)",
   },
   transitions: {
     easeOut: [0.16, 1, 0.3, 1] as const,
     easeInOut: [0.87, 0, 0.13, 1] as const,
   },
 };
-

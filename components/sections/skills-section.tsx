@@ -1,255 +1,166 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Bot, Network, Code, Server, CheckCircle2 } from "lucide-react";
+import React from "react";
+import { Bot, Network, Code, Server, ArrowUpRight } from "lucide-react";
+import { useLenis } from "@/components/ui/smooth-scroll";
 
-interface SkillCluster {
+interface CapabilityGroup {
+  number: string;
   title: string;
-  tagline: string;
+  description: string;
   icon: React.ElementType;
-  skills: { name: string; level: string; highlight?: boolean }[];
-  relatedProjects: string[];
+  primaryProject: { name: string; targetId: string };
+  skills: { name: string; context: string }[];
 }
 
-const CLUSTERS: SkillCluster[] = [
+const CAPABILITY_GROUPS: CapabilityGroup[] = [
   {
-    title: "AUTONOMOUS ROBOTICS & PERCEPTION",
-    tagline: "Real-world hardware control, costmaps & edge computer vision",
-    icon: Bot,
-    skills: [
-      { name: "ROS 2 Humble", level: "Production", highlight: true },
-      { name: "Nav2 Planners & Controllers", level: "Advanced", highlight: true },
-      { name: "OpenCV & Edge Vision", level: "Advanced" },
-      { name: "Gazebo Simulation", level: "Intermediate" },
-      { name: "Raspberry Pi & Serial Telemetry", level: "Hardware" },
-      { name: "ESP32 Motor PWM", level: "Embedded" },
-    ],
-    relatedProjects: ["NAVIGEN (SIH 2025)"],
-  },
-  {
-    title: "AI AGENTS & GRAPH SYSTEMS",
-    tagline: "Deterministic reasoning loops, graph queries & grounded intelligence",
+    number: "01",
+    title: "AI & Data Systems",
+    description:
+      "Deterministic reasoning loops, graph-based pattern detection, and retrieval-augmented generation that separate language understanding from verified decision logic.",
     icon: Network,
+    primaryProject: { name: "Fraud Investigation Agent & SchemeSaathi", targetId: "#selected-work" },
     skills: [
-      { name: "TigerGraph & GSQL", level: "Advanced", highlight: true },
-      { name: "LangGraph State Machines", level: "Production", highlight: true },
-      { name: "RAG & Vector Embeddings", level: "Advanced" },
-      { name: "Deterministic Scoring Engines", level: "Architectural" },
-      { name: "FastAPI Async Microservices", level: "Advanced" },
-      { name: "OCR & Document Parsing", level: "Practical" },
+      { name: "TigerGraph & GSQL", context: "Relational fraud pattern queries" },
+      { name: "LangGraph", context: "Stateful agent reasoning loops" },
+      { name: "Python & FastAPI", context: "Async microservices & offline evaluation" },
+      { name: "RAG Architecture", context: "Vector grounding for scheme criteria" },
+      { name: "Machine Learning", context: "Data mining & classification workflows" },
     ],
-    relatedProjects: ["Fraud Investigation Agent", "SchemeSaathi"],
   },
   {
-    title: "INTERACTIVE WEB & 3D FRONTEND",
-    tagline: "Awwwards-grade scroll choreography, WebGL shaders & React architecture",
+    number: "02",
+    title: "Robotics & Embedded Systems",
+    description:
+      "Real-world hardware perception and motion planning under physical compute constraints, connecting sensors and motor control loops.",
+    icon: Bot,
+    primaryProject: { name: "NAVIGEN Autonomous Ground Vehicle", targetId: "#selected-work" },
+    skills: [
+      { name: "ROS 2 Humble", context: "Nodes, topics & robot middleware" },
+      { name: "OpenCV", context: "30 FPS edge obstacle segmentation" },
+      { name: "Nav2 Stack", context: "Costmaps & pure-pursuit trajectory" },
+      { name: "Raspberry Pi 4", context: "High-level perception & compute" },
+      { name: "ESP32", context: "Closed-loop motor PWM & encoder feedback" },
+      { name: "Gazebo", context: "Physical simulation & kinematics" },
+    ],
+  },
+  {
+    number: "03",
+    title: "Full-Stack Engineering",
+    description:
+      "High-performance interactive interfaces, state synchronization, and accessible design systems built with strict type safety and modern web standards.",
     icon: Code,
+    primaryProject: { name: "LPG Dashboard & Portfolio Architecture", targetId: "#selected-work" },
     skills: [
-      { name: "Next.js (App Router)", level: "Production", highlight: true },
-      { name: "React Three Fiber & Drei", level: "Creative 3D", highlight: true },
-      { name: "GSAP & ScrollTrigger", level: "Advanced" },
-      { name: "Lenis Smooth Scroll", level: "Advanced" },
-      { name: "TypeScript Strict", level: "Production" },
-      { name: "Tailwind CSS v4", level: "Production" },
+      { name: "React & Next.js", context: "App Router, SSR & component architecture" },
+      { name: "TypeScript", context: "Strict typing across client and server" },
+      { name: "Tailwind CSS", context: "Design token systems & responsive layouts" },
+      { name: "Node.js", context: "Developer CLI tools & script automation" },
+      { name: "Framer Motion & GSAP", context: "Purposeful motion & scroll choreography" },
     ],
-    relatedProjects: ["Portfolio 3D", "Pulse Multiplayer"],
   },
   {
-    title: "INFRASTRUCTURE & CORE RUNTIMES",
-    tagline: "Linux environments, containers & real-time networking",
+    number: "04",
+    title: "Infrastructure & Tooling",
+    description:
+      "Developer environment rigor, containerized services, version control pipelines, and real-time database synchronization.",
     icon: Server,
+    primaryProject: { name: "Forge Terminal CLI & System Workflows", targetId: "#selected-work" },
     skills: [
-      { name: "Python 3.11+", level: "Primary", highlight: true },
-      { name: "Linux / Ubuntu Server", level: "Environment" },
-      { name: "WebSockets & Real-time Sync", level: "Advanced" },
-      { name: "Git CLI & Automation", level: "Tooling" },
-      { name: "Docker Containerization", level: "DevOps" },
-      { name: "C++ (ROS 2 nodes)", level: "Systems" },
+      { name: "Git & GitHub CLI", context: "Version control & multi-stage workflows" },
+      { name: "Docker", context: "Isolated build and execution containers" },
+      { name: "Linux / Ubuntu", context: "Edge deployment & process telemetry" },
+      { name: "Firebase Realtime DB", context: "Live IoT telemetry synchronization" },
+      { name: "WebSockets", context: "Bidirectional state streaming" },
     ],
-    relatedProjects: ["Forge CLI", "NAVIGEN", "Pulse"],
   },
-];
-
-const MARQUEE_TOOLS = [
-  "ROS 2",
-  "TIGERGRAPH",
-  "LANGGRAPH",
-  "REACT THREE FIBER",
-  "NEXT.JS 16",
-  "GSAP SCROLLTRIGGER",
-  "OPENCV",
-  "NAV2",
-  "PYTHON",
-  "TYPESCRIPT",
-  "FASTAPI",
-  "DOCKER",
-  "LENIS",
-  "UBUNTU",
-  "TAILWIND CSS",
 ];
 
 export function SkillsSection() {
-  const [activeCluster, setActiveCluster] = useState<number>(0);
+  const { scrollTo } = useLenis();
 
   return (
     <section
-      id="skills"
-      className="relative min-h-screen w-full px-6 sm:px-12 md:px-16 py-32 z-10 border-t divider-subtle overflow-hidden"
+      id="capabilities"
+      className="relative w-full px-5 sm:px-8 md:px-12 py-24 sm:py-32 z-10 border-t divider-subtle"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b divider-subtle pb-6 mb-16 gap-4">
-          <span className="font-mono text-xs tracking-widest text-[#8E8E99] uppercase">
-            [04 // ARCHITECTURE MATRIX & STACK]
-          </span>
-          <span className="font-mono text-xs tracking-wider text-accent uppercase">
-            ORBITAL SKILLS & CAPABILITIES
-          </span>
-        </div>
-
-        {/* Section Title */}
-        <div className="mb-16">
-          <span className="font-mono text-5xl sm:text-7xl font-light text-white/20">
-            04
-          </span>
-          <h2 className="type-h1 text-[#EDEDED] uppercase mt-2">
-            TECHNICAL MATRIX.
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#8E8E99] max-w-2xl">
-            Selected specializations across hardware-level robotics, agent graph intelligence,
-            and mathematical creative development.
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b divider-subtle pb-6 mb-12 sm:mb-16 gap-4">
+          <div>
+            <div className="flex items-center gap-2 font-mono text-xs tracking-widest text-[#a6a69f] uppercase mb-2">
+              <span className="text-[#f97316] font-bold">02 /</span>
+              <span>TECHNICAL CAPABILITIES</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#f5f4ef] tracking-tight">
+              HOW I BUILD.
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm font-mono text-[#a6a69f] max-w-sm">
+            Organized by engineering domain — each capability backed by real implementation in code or hardware.
           </p>
         </div>
 
-        {/* Interactive Cluster Selector + Details Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left: Cluster Buttons */}
-          <div className="lg:col-span-5 space-y-3">
-            {CLUSTERS.map((cluster, idx) => {
-              const Icon = cluster.icon;
-              const isActive = activeCluster === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setActiveCluster(idx)}
-                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 cursor-pointer flex items-start gap-4 ${
-                    isActive
-                      ? "bg-[#18181D] border-accent shadow-[0_0_25px_rgba(0,240,255,0.15)]"
-                      : "bg-[#121215]/60 border-white/10 hover:border-white/25"
-                  }`}
-                >
-                  <div
-                    className={`p-3 rounded-xl transition-colors ${
-                      isActive ? "bg-accent text-black" : "bg-white/5 text-[#8E8E99]"
-                    }`}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div className="space-y-1">
-                    <span
-                      className={`font-mono text-xs font-bold uppercase tracking-wider block ${
-                        isActive ? "text-accent" : "text-[#EDEDED]"
-                      }`}
-                    >
-                      {cluster.title}
+        {/* 4 Clean Capability Groups */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          {CAPABILITY_GROUPS.map((group) => {
+            const Icon = group.icon;
+
+            return (
+              <div
+                key={group.number}
+                className="p-6 sm:p-8 rounded-2xl bg-[#13161e] border border-white/[0.08] hover:border-white/[0.18] transition-colors flex flex-col justify-between"
+              >
+                <div>
+                  {/* Top indicator & icon */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-xs text-[#f97316] font-bold">
+                      {group.number} // DOMAIN
                     </span>
-                    <p className="text-xs text-[#8E8E99] leading-relaxed">
-                      {cluster.tagline}
-                    </p>
+                    <div className="p-2 rounded-xl bg-white/[0.03] text-[#f97316]">
+                      <Icon className="w-5 h-5" />
+                    </div>
                   </div>
-                </button>
-              );
-            })}
-          </div>
 
-          {/* Right: Active Cluster Capabilities Matrix */}
-          <div className="lg:col-span-7 bg-[#121215]/80 border border-white/10 rounded-3xl p-8 sm:p-12 backdrop-blur-md">
-            <div className="flex items-center justify-between border-b divider-subtle pb-6 mb-8">
-              <div>
-                <span className="font-mono text-xs text-[#8E8E99] uppercase">
-                  ACTIVE DOMAIN SPECS
-                </span>
-                <h3 className="text-2xl font-black text-[#EDEDED] mt-1">
-                  {CLUSTERS[activeCluster].title}
-                </h3>
-              </div>
-              <span className="font-mono text-xs text-accent bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
-                VERIFIED IN CODE
-              </span>
-            </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#f5f4ef] tracking-tight mb-2">
+                    {group.title}
+                  </h3>
 
-            {/* Skills Pills & Levels */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              {CLUSTERS[activeCluster].skills.map((s, idx) => (
-                <div
-                  key={idx}
-                  className={`p-4 rounded-xl border transition-colors flex items-center justify-between ${
-                    s.highlight
-                      ? "bg-accent/5 border-accent/40 text-[#EDEDED]"
-                      : "bg-white/5 border-white/10 text-[#8E8E99]"
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2
-                      className={`w-4 h-4 ${s.highlight ? "text-accent" : "text-[#8E8E99]"}`}
-                    />
-                    <span className="font-mono text-xs font-semibold text-[#EDEDED]">
-                      {s.name}
-                    </span>
+                  <p className="text-xs sm:text-sm text-[#a6a69f] font-light leading-relaxed mb-6">
+                    {group.description}
+                  </p>
+
+                  {/* Skills Grid */}
+                  <div className="space-y-2 mb-6">
+                    {group.skills.map((skill) => (
+                      <div
+                        key={skill.name}
+                        className="p-2.5 rounded-lg bg-[#090b10] border border-white/[0.04] flex items-center justify-between text-xs font-mono"
+                      >
+                        <span className="font-bold text-[#f5f4ef]">{skill.name}</span>
+                        <span className="text-[10px] text-[#a6a69f]">{skill.context}</span>
+                      </div>
+                    ))}
                   </div>
-                  <span className="font-mono text-[10px] uppercase text-accent/80 px-2 py-0.5 rounded bg-white/5">
-                    {s.level}
-                  </span>
                 </div>
-              ))}
-            </div>
 
-            {/* Related Projects Bridge */}
-            <div className="pt-6 border-t divider-subtle">
-              <span className="font-mono text-xs text-[#8E8E99] uppercase block mb-3">
-                DIRECTLY DEMONSTRATED IN:
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {CLUSTERS[activeCluster].relatedProjects.map((p, idx) => (
-                  <span
-                    key={idx}
-                    className="font-mono text-xs px-3.5 py-1.5 rounded-full bg-accent/10 text-accent border border-accent/30 font-medium"
+                {/* Direct Project Connection */}
+                <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono">
+                  <span className="text-[#a6a69f] text-[10px] uppercase">Demonstrated in:</span>
+                  <button
+                    onClick={() => scrollTo(group.primaryProject.targetId, { offset: -50 })}
+                    className="flex items-center gap-1 text-[#84a98c] hover:text-[#f5f4ef] transition-colors font-semibold cursor-pointer"
                   >
-                    ▶ {p}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Secondary Infinite Tools Marquee */}
-        <div className="mt-24 pt-8 border-t divider-subtle relative overflow-hidden">
-          <div className="flex whitespace-nowrap overflow-hidden">
-            <motion.div
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                duration: 25,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="flex gap-8 items-center"
-            >
-              {[...MARQUEE_TOOLS, ...MARQUEE_TOOLS].map((tool, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-6 font-mono text-xs sm:text-sm tracking-widest text-[#8E8E99] uppercase"
-                >
-                  <span className="hover:text-accent transition-colors">{tool}</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+                    <span>{group.primaryProject.name}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
-              ))}
-            </motion.div>
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-

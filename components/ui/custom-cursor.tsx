@@ -11,7 +11,7 @@ export function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Buttery smooth trailing spring
+  // Smooth trailing spring
   const springX = useSpring(mouseX, { stiffness: 450, damping: 32 });
   const springY = useSpring(mouseY, { stiffness: 450, damping: 32 });
 
@@ -29,7 +29,6 @@ export function CustomCursor() {
       mouseY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
 
-      // Check target element
       const target = e.target as HTMLElement | null;
       if (!target) return;
 
@@ -62,9 +61,9 @@ export function CustomCursor() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden" aria-hidden="true">
-      {/* Inner precise dot */}
+      {/* Inner precise dot in warm terracotta */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-accent -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#f97316] -translate-x-1/2 -translate-y-1/2"
         style={{
           x: mouseX,
           y: mouseY,
@@ -80,20 +79,20 @@ export function CustomCursor() {
           y: springY,
         }}
         animate={{
-          width: cursorMode === "view" ? 84 : cursorMode === "hover" ? 54 : 32,
-          height: cursorMode === "view" ? 84 : cursorMode === "hover" ? 54 : 32,
+          width: cursorMode === "view" ? 80 : cursorMode === "hover" ? 52 : 30,
+          height: cursorMode === "view" ? 80 : cursorMode === "hover" ? 52 : 30,
           backgroundColor:
             cursorMode === "view"
-              ? "rgba(0, 240, 255, 0.95)"
+              ? "#f5f4ef"
               : cursorMode === "hover"
-              ? "rgba(0, 240, 255, 0.12)"
-              : "rgba(255, 255, 255, 0.03)",
+              ? "rgba(249, 115, 22, 0.12)"
+              : "rgba(245, 244, 239, 0.02)",
           borderColor:
             cursorMode === "view"
-              ? "#00f0ff"
+              ? "#f5f4ef"
               : cursorMode === "hover"
-              ? "#00f0ff"
-              : "rgba(255, 255, 255, 0.25)",
+              ? "#f97316"
+              : "rgba(245, 244, 239, 0.2)",
           borderWidth: cursorMode === "view" ? "0px" : "1px",
         }}
       >
@@ -101,7 +100,7 @@ export function CustomCursor() {
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-[11px] font-mono font-bold tracking-widest text-[#0A0A0B] uppercase"
+            className="text-[11px] font-mono font-bold tracking-widest text-[#0d0f14] uppercase"
           >
             VIEW
           </motion.span>

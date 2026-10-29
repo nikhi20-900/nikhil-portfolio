@@ -63,8 +63,8 @@ export function CommandPalette() {
     {
       id: "nav-hero",
       category: "NAVIGATE",
-      title: "01 // INDEX / HERO",
-      subtitle: "System architecture & landing",
+      title: "00 // HERO / INDEX",
+      subtitle: "System landing & telemetry",
       icon: Compass,
       action: () => {
         setIsOpen(false);
@@ -72,10 +72,32 @@ export function CommandPalette() {
       },
     },
     {
+      id: "nav-work",
+      category: "NAVIGATE",
+      title: "01 // SELECTED WORK",
+      subtitle: "4 proven engineering builds & verification dossiers",
+      icon: FolderGit2,
+      action: () => {
+        setIsOpen(false);
+        scrollTo("#selected-work");
+      },
+    },
+    {
+      id: "nav-skills",
+      category: "NAVIGATE",
+      title: "02 // TECHNICAL CAPABILITIES",
+      subtitle: "AI systems, ROS 2 robotics, full-stack, infrastructure",
+      icon: Compass,
+      action: () => {
+        setIsOpen(false);
+        scrollTo("#capabilities");
+      },
+    },
+    {
       id: "nav-about",
       category: "NAVIGATE",
-      title: "02 // PHILOSOPHY & ABOUT",
-      subtitle: "Manifesto & core principles",
+      title: "03 // ABOUT & PHILOSOPHY",
+      subtitle: "First principles, DSU BCA foundation, engineering values",
       icon: Compass,
       action: () => {
         setIsOpen(false);
@@ -83,32 +105,10 @@ export function CommandPalette() {
       },
     },
     {
-      id: "nav-work",
-      category: "NAVIGATE",
-      title: "03 // SELECTED WORK",
-      subtitle: "4 proven engineering builds",
-      icon: FolderGit2,
-      action: () => {
-        setIsOpen(false);
-        scrollTo("#work");
-      },
-    },
-    {
-      id: "nav-skills",
-      category: "NAVIGATE",
-      title: "04 // SKILLS & MATRIX",
-      subtitle: "Robotics, AI agents, 3D stack",
-      icon: Compass,
-      action: () => {
-        setIsOpen(false);
-        scrollTo("#skills");
-      },
-    },
-    {
       id: "nav-experience",
       category: "NAVIGATE",
-      title: "05 // EXPERIENCE & TIMELINE",
-      subtitle: "Chronology & verified milestones",
+      title: "04 // EXPERIENCE & JOURNEY",
+      subtitle: "Hackathons, academics, and system milestones",
       icon: Compass,
       action: () => {
         setIsOpen(false);
@@ -118,8 +118,8 @@ export function CommandPalette() {
     {
       id: "nav-contact",
       category: "NAVIGATE",
-      title: "06 // CONTACT TRANSMISSION",
-      subtitle: "Direct dispatch & Bangalore IST time",
+      title: "05 // GET IN TOUCH",
+      subtitle: "Direct email & live Bangalore IST clock",
       icon: Mail,
       action: () => {
         setIsOpen(false);
@@ -134,7 +134,7 @@ export function CommandPalette() {
       icon: FolderGit2,
       action: () => {
         setIsOpen(false);
-        scrollTo("#work");
+        scrollTo("#selected-work");
       },
     },
     {
@@ -145,7 +145,7 @@ export function CommandPalette() {
       icon: FolderGit2,
       action: () => {
         setIsOpen(false);
-        scrollTo("#work");
+        scrollTo("#selected-work");
       },
     },
     {
@@ -156,7 +156,7 @@ export function CommandPalette() {
       icon: FolderGit2,
       action: () => {
         setIsOpen(false);
-        scrollTo("#work");
+        scrollTo("#selected-work");
       },
     },
     {
@@ -167,17 +167,17 @@ export function CommandPalette() {
       icon: FolderGit2,
       action: () => {
         setIsOpen(false);
-        scrollTo("#work");
+        scrollTo("#selected-work");
       },
     },
     {
       id: "act-email",
       category: "ACTIONS",
       title: "Copy Direct Email",
-      subtitle: "nikhilchhetri20900@gmail.com",
+      subtitle: "nikhil142004@gmail.com",
       icon: Mail,
       action: () => {
-        navigator.clipboard.writeText("nikhilchhetri20900@gmail.com");
+        navigator.clipboard.writeText("nikhil142004@gmail.com");
         setIsOpen(false);
       },
     },
@@ -245,19 +245,19 @@ export function CommandPalette() {
         break;
       case "whoami":
         output =
-          "Nikhil Chhetri — Systems & Creative Developer in Bangalore, IN. Building autonomous robotics, graph intelligence, and interactive 3D web.";
+          "Nikhil Chhetri — Systems, AI & Robotics Builder in Bangalore, IN. BCA student at Dayananda Sagar University. Focused on physical constraints, graph-native patterns, and deterministic reasoning.";
         break;
       case "projects":
         output =
-          "1. Fraud Investigation Agent (TigerGraph + LangGraph)\n2. NAVIGEN (ROS 2 Autonomous UGV)\n3. SchemeSaathi (AI Civic Scheme Navigator)\n4. LPG Gas Leakage Dashboard (IoT)";
+          "1. Fraud Investigation Agent (TigerGraph + LangGraph) [BUILT]\n2. NAVIGEN (ROS 2 Autonomous UGV) [BUILT]\n3. SchemeSaathi (AI Civic Scheme Navigator) [BUILDING]\n4. LPG Gas Leakage Dashboard (MQ-6 + Firebase) [BUILT]";
         break;
       case "stack":
         output =
-          "Core: ROS 2, Python, OpenCV, TigerGraph GSQL, LangGraph, Next.js 16, Three.js, GSAP, Tailwind CSS";
+          "Core: ROS 2 Humble, Python, OpenCV, TigerGraph GSQL, LangGraph, Next.js, TypeScript, Three.js, GSAP, Tailwind CSS";
         break;
       case "contact":
         output =
-          "Email: nikhilchhetri20900@gmail.com | GitHub: github.com/nikhi20-900";
+          "Email: nikhil142004@gmail.com | LinkedIn: linkedin.com/in/nikhil-chhetri-115747284 | GitHub: github.com/nikhi20-900";
         break;
       case "clear":
         setTerminalHistory([]);
@@ -293,20 +293,20 @@ export function CommandPalette() {
               exit={{ opacity: 0, scale: 0.96, y: -10 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl bg-[#0E1015] border border-white/15 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden text-[#EDEDED]"
+              className="relative w-full max-w-2xl bg-[#0d0f14] border border-white/[0.12] rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden text-[#f5f4ef]"
               role="dialog"
               aria-modal="true"
               aria-label="Command Palette"
             >
               {/* Header / Mode Switcher */}
-              <div className="flex items-center justify-between border-b divider-subtle px-4 py-3 bg-[#13161D]">
+              <div className="flex items-center justify-between border-b divider-subtle px-4 py-3 bg-[#13161e]">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setIsTerminalMode(false)}
                     className={`font-mono text-xs px-3 py-1 rounded-md transition-colors ${
                       !isTerminalMode
-                        ? "bg-accent/15 text-accent font-bold"
-                        : "text-[#8E8E99] hover:text-white"
+                        ? "bg-[#f97316]/15 text-[#f97316] font-bold"
+                        : "text-[#a6a69f] hover:text-[#f5f4ef]"
                     }`}
                   >
                     COMMAND SEARCH
@@ -315,8 +315,8 @@ export function CommandPalette() {
                     onClick={() => setIsTerminalMode(true)}
                     className={`font-mono text-xs px-3 py-1 rounded-md flex items-center gap-1.5 transition-colors ${
                       isTerminalMode
-                        ? "bg-accent/15 text-accent font-bold"
-                        : "text-[#8E8E99] hover:text-white"
+                        ? "bg-[#f97316]/15 text-[#f97316] font-bold"
+                        : "text-[#a6a69f] hover:text-[#f5f4ef]"
                     }`}
                   >
                     <Terminal className="w-3.5 h-3.5" />
@@ -324,8 +324,8 @@ export function CommandPalette() {
                   </button>
                 </div>
 
-                <div className="flex items-center gap-2 font-mono text-[11px] text-[#8E8E99]">
-                  <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white text-[10px]">ESC</kbd>
+                <div className="flex items-center gap-2 font-mono text-[11px] text-[#a6a69f]">
+                  <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#f5f4ef] text-[10px]">ESC</kbd>
                   <span>TO CLOSE</span>
                 </div>
               </div>
@@ -334,7 +334,7 @@ export function CommandPalette() {
               {!isTerminalMode ? (
                 <>
                   <div className="flex items-center gap-3 px-4 py-3.5 border-b divider-subtle">
-                    <Search className="w-5 h-5 text-accent shrink-0" />
+                    <Search className="w-5 h-5 text-[#f97316] shrink-0" />
                     <input
                       ref={inputRef}
                       type="text"
@@ -345,12 +345,12 @@ export function CommandPalette() {
                       }}
                       onKeyDown={handleKeyDownNav}
                       placeholder="Type a command, project, or section..."
-                      className="w-full bg-transparent border-none outline-none font-mono text-sm text-white placeholder:text-[#8E8E99]"
+                      className="w-full bg-transparent border-none outline-none font-mono text-sm text-[#f5f4ef] placeholder:text-[#a6a69f]"
                     />
                     {query && (
                       <button
                         onClick={() => setQuery("")}
-                        className="p-1 rounded hover:bg-white/10 text-[#8E8E99]"
+                        className="p-1 rounded hover:bg-white/10 text-[#a6a69f]"
                       >
                         <X className="w-4 h-4" />
                       </button>
@@ -360,7 +360,7 @@ export function CommandPalette() {
                   {/* Results list */}
                   <div className="max-h-80 overflow-y-auto p-2 space-y-1">
                     {filteredCommands.length === 0 ? (
-                      <div className="p-8 text-center font-mono text-xs text-[#8E8E99]">
+                      <div className="p-8 text-center font-mono text-xs text-[#a6a69f]">
                         No matching commands found.
                       </div>
                     ) : (
@@ -374,16 +374,16 @@ export function CommandPalette() {
                             onMouseEnter={() => setSelectedIndex(idx)}
                             className={`flex items-center justify-between p-3 rounded-xl cursor-pointer transition-colors ${
                               isSelected
-                                ? "bg-accent/15 text-white border border-accent/30"
-                                : "text-[#EDEDED] hover:bg-white/5 border border-transparent"
+                                ? "bg-[#f97316]/15 text-[#f5f4ef] border border-[#f97316]/30"
+                                : "text-[#f5f4ef] hover:bg-white/5 border border-transparent"
                             }`}
                           >
                             <div className="flex items-center gap-3 min-w-0">
                               <div
                                 className={`p-2 rounded-lg ${
                                   isSelected
-                                    ? "bg-accent text-black"
-                                    : "bg-white/5 text-[#8E8E99]"
+                                    ? "bg-[#f97316] text-[#0d0f14]"
+                                    : "bg-white/5 text-[#a6a69f]"
                                 }`}
                               >
                                 <Icon className="w-4 h-4" />
@@ -393,18 +393,18 @@ export function CommandPalette() {
                                   {cmd.title}
                                 </p>
                                 {cmd.subtitle && (
-                                  <p className="font-mono text-[11px] text-[#8E8E99] truncate">
+                                  <p className="font-mono text-[11px] text-[#a6a69f] truncate">
                                     {cmd.subtitle}
                                   </p>
                                 )}
                               </div>
                             </div>
 
-                            <div className="flex items-center gap-2 font-mono text-[10px] text-[#8E8E99] shrink-0">
+                            <div className="flex items-center gap-2 font-mono text-[10px] text-[#a6a69f] shrink-0">
                               <span className="uppercase text-[9px] px-2 py-0.5 rounded bg-white/5">
                                 {cmd.category}
                               </span>
-                              {isSelected && <CornerDownLeft className="w-3.5 h-3.5 text-accent" />}
+                              {isSelected && <CornerDownLeft className="w-3.5 h-3.5 text-[#f97316]" />}
                             </div>
                           </div>
                         );
@@ -418,11 +418,11 @@ export function CommandPalette() {
                   <div className="max-h-72 overflow-y-auto space-y-3 pr-2">
                     {terminalHistory.map((h, i) => (
                       <div key={i} className="space-y-1">
-                        <div className="flex items-center gap-2 text-accent">
+                        <div className="flex items-center gap-2 text-[#f97316]">
                           <span>guest@nikhil:~$</span>
-                          <span className="text-white font-bold">{h.cmd}</span>
+                          <span className="text-[#f5f4ef] font-bold">{h.cmd}</span>
                         </div>
-                        <div className="text-[#8E8E99] whitespace-pre-wrap pl-4 border-l border-white/10 leading-relaxed">
+                        <div className="text-[#a6a69f] whitespace-pre-wrap pl-4 border-l border-white/10 leading-relaxed">
                           {h.output}
                         </div>
                       </div>
@@ -435,18 +435,18 @@ export function CommandPalette() {
                     onSubmit={handleTerminalSubmit}
                     className="flex items-center gap-2 mt-4 pt-3 border-t divider-subtle"
                   >
-                    <span className="text-accent shrink-0 font-bold">guest@nikhil:~$</span>
+                    <span className="text-[#f97316] shrink-0 font-bold">guest@nikhil:~$</span>
                     <input
                       type="text"
                       value={terminalInput}
                       onChange={(e) => setTerminalInput(e.target.value)}
                       placeholder="type 'help', 'projects', 'stack', 'contact'..."
-                      className="w-full bg-transparent border-none outline-none text-white font-mono text-xs"
+                      className="w-full bg-transparent border-none outline-none text-[#f5f4ef] font-mono text-xs"
                       autoFocus
                     />
                     <button
                       type="submit"
-                      className="px-2.5 py-1 rounded bg-accent/20 text-accent hover:bg-accent hover:text-black transition-colors text-[10px]"
+                      className="px-2.5 py-1 rounded bg-[#f97316]/20 text-[#f97316] hover:bg-[#f97316] hover:text-[#0d0f14] transition-colors text-[10px]"
                     >
                       ENTER
                     </button>
@@ -455,12 +455,12 @@ export function CommandPalette() {
               )}
 
               {/* Bottom Telemetry Bar */}
-              <div className="flex items-center justify-between px-4 py-2 bg-[#090A0D] border-t divider-subtle font-mono text-[10px] text-[#8E8E99]">
+              <div className="flex items-center justify-between px-4 py-2 bg-[#090b10] border-t divider-subtle font-mono text-[10px] text-[#a6a69f]">
                 <div className="flex items-center gap-3">
                   <span>NAV: ↑ / ↓</span>
                   <span>SELECT: ↵</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-accent">
+                <div className="flex items-center gap-1.5 text-[#f97316]">
                   <Sparkles className="w-3 h-3" />
                   <span>NIKHIL CHHETRI · AGENT ARCHITECTURE</span>
                 </div>

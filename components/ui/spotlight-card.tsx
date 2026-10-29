@@ -14,8 +14,8 @@ interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
 export function SpotlightCard({
   children,
   className,
-  spotlightColor = "rgba(0, 240, 255, 0.12)",
-  maxTilt = 6,
+  spotlightColor = "rgba(249, 115, 22, 0.08)",
+  maxTilt = 5,
   ...props
 }: SpotlightCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -115,7 +115,7 @@ export function SpotlightCard({
           className="pointer-events-none absolute inset-0 rounded-3xl transition-opacity duration-300 z-10"
           style={{
             opacity: isHovered ? 1 : 0,
-            border: "1px solid rgba(0, 240, 255, 0.4)",
+            border: "1px solid rgba(249, 115, 22, 0.35)",
             maskImage: `radial-gradient(350px circle at ${spotlightPos.x}px ${spotlightPos.y}px, black, transparent 70%)`,
             WebkitMaskImage: `radial-gradient(350px circle at ${spotlightPos.x}px ${spotlightPos.y}px, black, transparent 70%)`,
           }}

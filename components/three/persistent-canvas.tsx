@@ -67,8 +67,8 @@ export default function PersistentCanvas() {
         className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 left-10 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/[0.03] rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-10 w-80 h-80 bg-[#84a98c]/[0.02] rounded-full blur-3xl" />
       </div>
     );
   }
