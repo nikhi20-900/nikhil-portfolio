@@ -1,37 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 /* Deployed domain from README — do not invent alternate domains */
 const SITE_URL = "https://nikhil-portfolio-rose.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Nikhil Chhetri — Developer Building AI, Robotics & Full-Stack Systems",
+  title: "Nikhil Chhetri — Systems & AI Engineer | 3D Interactive Portfolio",
   description:
-    "Portfolio of Nikhil Chhetri, BCA student and builder in Bangalore. Selected work across AI systems, graph-based fraud investigation, autonomous robotics, civic tech, and full-stack products — with source and honest status labels.",
+    "Portfolio of Nikhil Chhetri, developer building AI systems, graph engines, autonomous robotics, and interactive web experiences.",
   keywords: [
     "Nikhil Chhetri",
-    "Full-Stack Developer",
+    "Creative Developer",
     "AI Systems",
     "Robotics",
-    "ROS 2",
-    "NAVIGEN",
-    "Fraud Investigation Agent",
-    "SchemeSaathi",
+    "Three.js",
+    "React Three Fiber",
+    "GSAP",
     "Next.js",
-    "Bangalore",
-    "Dayananda Sagar University",
   ],
   authors: [{ name: "Nikhil Chhetri" }],
   creator: "Nikhil Chhetri",
@@ -40,15 +26,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "Nikhil Chhetri Portfolio",
-    title: "Nikhil Chhetri — Developer Building AI, Robotics & Full-Stack Systems",
+    title: "Nikhil Chhetri — Systems & AI Engineer | 3D Interactive Portfolio",
     description:
-      "Selected engineering work: AI systems, autonomous robotics, civic tech, and full-stack products — with architecture, source, and honest BUILT / BUILDING status.",
+      "Interactive 3D portfolio showcasing work across autonomous robotics, graph fraud investigation, and modern AI engineering.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nikhil Chhetri — Developer Building AI, Robotics & Full-Stack Systems",
+    title: "Nikhil Chhetri — Systems & AI Engineer | 3D Interactive Portfolio",
     description:
-      "Selected engineering work: AI systems, autonomous robotics, civic tech, and full-stack products — with architecture, source, and honest status.",
+      "Interactive 3D portfolio showcasing work across autonomous robotics, graph fraud investigation, and modern AI engineering.",
   },
   icons: {
     icon: "/favicon.ico",
@@ -61,11 +47,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
-    >
-      <body className="min-h-screen bg-background text-foreground antialiased">
+    <html lang="en" className="dark scroll-smooth">
+      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-accent/30 selection:text-white">
         {children}
       </body>
     </html>

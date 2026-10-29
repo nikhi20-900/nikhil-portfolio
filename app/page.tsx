@@ -1,163 +1,75 @@
-import { Navbar } from "@/components/navbar";
-import { Hero } from "@/components/hero";
-import { ProofStrip } from "@/components/proof-strip";
-import { SelectedWork } from "@/components/selected-work";
-import { FraudFeatured } from "@/components/fraud-featured";
-import { NavigenFeatured } from "@/components/navigen-featured";
-import { BuildersLab } from "@/components/builders-lab";
-import { SignatureStatement } from "@/components/signature-statement";
-import { ChapterTransition } from "@/components/ui/chapter-transition";
-import { ToolsMap } from "@/components/tools-map";
-import { ForgeFeatured } from "@/components/forge-featured";
-import { PulseFeatured } from "@/components/pulse-featured";
-import { AtlasFeatured } from "@/components/atlas-featured";
-import { NexusFeatured } from "@/components/nexus-featured";
-import { AtlasNexusSynthesis } from "@/components/ui/atlas-nexus-synthesis";
-import { ProjectsGrid } from "@/components/projects-grid";
-import { ThingsThatBroke } from "@/components/things-that-broke";
-import { BuildNotes } from "@/components/build-notes";
-import { HowIBuild } from "@/components/how-i-build";
-import { Hackathons } from "@/components/hackathons";
-import { GithubEvidence } from "@/components/github-evidence";
-import { Education } from "@/components/education";
-import { TerminalEasterEgg } from "@/components/terminal-easter-egg";
-import { Contact } from "@/components/contact";
-import { Footer } from "@/components/footer";
+"use client";
+
+import React, { useState } from "react";
+import { SmoothScrollProvider } from "@/components/ui/smooth-scroll";
+import { Preloader } from "@/components/ui/preloader";
 import { CustomCursor } from "@/components/ui/custom-cursor";
-import { MotionProvider } from "@/components/ui/motion-provider";
+import { NavbarEditorial } from "@/components/ui/navbar-editorial";
+import { FloatingDock } from "@/components/ui/dock";
+import { CommandPalette } from "@/components/ui/command-palette";
+import { Scene3DCanvas } from "@/components/three/canvas-wrapper";
+import { HeroSection } from "@/components/sections/hero-section";
+import { AboutSection } from "@/components/sections/about-section";
+import { WorkSection } from "@/components/sections/work-section";
+import { SkillsSection } from "@/components/sections/skills-section";
+import { ExperienceSection } from "@/components/sections/experience-section";
+import { ContactSection } from "@/components/sections/contact-section";
 
 export default function Home() {
+  const [preloaderDone, setPreloaderDone] = useState(false);
+
   return (
-    <MotionProvider>
-      <main className="relative min-h-screen bg-background text-foreground">
-        {/* Context-aware custom cursor on desktop */}
-        <CustomCursor />
+    <SmoothScrollProvider>
+      {/* 00. Seamless 0→100 Preloader with Name Reveal */}
+      <Preloader onComplete={() => setPreloaderDone(true)} />
 
-        {/* Sticky editorial navbar */}
-        <Navbar />
+      {/* Persistent Custom Cursor */}
+      <CustomCursor />
 
-        {/* Deliberate Visual Rhythm & Continuous Storytelling Flow */}
-        <div className="relative z-10 flex flex-col">
-          {/* 1. HERO — Who am I? What do I build? */}
-          <Hero />
+      {/* Tactile Noise/Grain Overlay */}
+      <div
+        className="fixed inset-0 pointer-events-none z-30 bg-grain opacity-40 mix-blend-overlay"
+        aria-hidden="true"
+      />
 
-          {/* 1b. PROOF STRIP — Breadth, no fake metrics */}
-          <ProofStrip />
+      {/* Subtle Architectural Grid */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0 grid-editorial opacity-60"
+        aria-hidden="true"
+      />
 
-          {/* 2. SELECTED WORK — What have I built? (evidence-first entry) */}
-          <SelectedWork />
+      {/* Single Persistent 3D R3F Canvas */}
+      <Scene3DCanvas />
 
-          {/* 3. CASE STUDY · FRAUD — How does the strongest system work? */}
-          <FraudFeatured />
+      {/* Persistent Minimal Nav + Fullscreen Menu */}
+      <NavbarEditorial />
 
-          {/* 4. CASE STUDY · NAVIGEN — Physical autonomy system */}
-          <NavigenFeatured />
+      {/* Floating macOS-Style Dock Navigation */}
+      <FloatingDock />
 
-          {/* 5. BUILDER'S LAB — Interactive prototypes & active builds */}
-          <BuildersLab />
+      {/* Global ⌘K Command Palette with Terminal Mode */}
+      <CommandPalette />
 
-          {/* Signature Philosophy Bridge */}
-          <SignatureStatement />
+      {/* Main Editorial Document Flow */}
+      <main className="relative z-10 w-full min-h-screen flex flex-col">
+        {/* 01. HERO SECTION */}
+        <HeroSection />
 
-          {/* CHAPTER TRANSITION 1: SYSTEMS → SOFTWARE STACK */}
-          <ChapterTransition
-            fromNumber="01"
-            fromTitle="SHIPPED SYSTEMS / FRAUD · NAVIGEN"
-            toNumber="02"
-            toTitle="THE STACK / TOOLS"
-            statement="From physical motor loops to the software stack that drives them."
-            substatement="Hardware, sensors, and firmware connect into languages, libraries, and architecture."
-          />
+        {/* 02. ABOUT SECTION */}
+        <AboutSection />
 
-          {/* 6. TOOLS I BUILD WITH — Exploratory matrix & verified technologies */}
-          <ToolsMap />
+        {/* 03. SELECTED WORK */}
+        <WorkSection />
 
-          {/* CHAPTER TRANSITION 2: CODE → AGENTS */}
-          <ChapterTransition
-            fromNumber="02"
-            fromTitle="THE STACK"
-            toNumber="02"
-            toTitle="AI AGENTS / FORGE"
-            statement="From writing code manually to orchestrating agents in the terminal."
-            substatement="Developer tooling and AI workflows act as force multipliers for rapid prototyping."
-          />
+        {/* 04. SKILLS & STACK */}
+        <SkillsSection />
 
-          {/* 7. FORGE — AI Engineering, pipeline, terminal */}
-          <ForgeFeatured />
+        {/* 05. EXPERIENCE & TIMELINE */}
+        <ExperienceSection />
 
-          {/* CHAPTER TRANSITION 3: SINGLE-DEV CLI → MULTIPLAYER WORKSPACE */}
-          <ChapterTransition
-            fromNumber="02"
-            fromTitle="DEVELOPER CLI / FORGE"
-            toNumber="03"
-            toTitle="REAL-TIME PRODUCT / PULSE"
-            statement="From single-developer tools to real-time multiplayer products."
-            substatement="Where multiple people, shared state, and live synchronization meet."
-          />
-
-          {/* 8. PULSE — Real-time collaborative workspace */}
-          <PulseFeatured />
-
-          {/* CHAPTER TRANSITION 4: REAL-TIME STATE → GROUNDED KNOWLEDGE */}
-          <ChapterTransition
-            fromNumber="03"
-            fromTitle="REAL-TIME STATE / PULSE"
-            toNumber="04"
-            toTitle="KNOWLEDGE SYSTEMS / ATLAS"
-            statement="From synchronizing live state to grounding answers in evidence."
-            substatement="Turning scattered documents into traceable, verifiable intelligence."
-          />
-
-          {/* 9. ATLAS — RAG / knowledge systems */}
-          <AtlasFeatured />
-
-          {/* CHAPTER TRANSITION 5: KNOWLEDGE → DEVOPS & INFRASTRUCTURE */}
-          <ChapterTransition
-            fromNumber="04"
-            fromTitle="KNOWLEDGE SYSTEMS / ATLAS"
-            toNumber="05"
-            toTitle="DEVOPS & INFRASTRUCTURE / NEXUS"
-            statement="From asking what is true to understanding how software ships."
-            substatement="Connecting source code, automated gates, builds, and edge observability."
-          />
-
-          {/* 10. NEXUS — DevOps / automation */}
-          <NexusFeatured />
-
-          {/* 11. ATLAS × NEXUS SYNTHESIS BRIDGE */}
-          <AtlasNexusSynthesis />
-
-          {/* 12. THINGS THAT BROKE — Honest engineering autopsies */}
-          <ThingsThatBroke />
-
-          {/* 13. BUILD NOTES — What I'm figuring out next */}
-          <BuildNotes />
-
-          {/* 14. HOW I BUILD — Methodology */}
-          <HowIBuild />
-
-          {/* 15. PROJECT STATUS INDEX — BUILT / BUILDING / EXPLORING */}
-          <ProjectsGrid />
-
-          {/* 16. HACKATHONS — How I work under constraints */}
-          <Hackathons />
-
-          {/* 17. SOURCE CODE — GitHub evidence */}
-          <GithubEvidence />
-
-          {/* 18. ABOUT — Who am I beyond the projects? */}
-          <Education />
-
-          {/* 19. TERMINAL EASTER EGG */}
-          <TerminalEasterEgg />
-
-          {/* 20. CONTACT — How can someone reach me? */}
-          <Contact />
-        </div>
-
-        {/* Minimal editorial footer */}
-        <Footer />
+        {/* 06. CONTACT & INTERACTIVE FOOTER */}
+        <ContactSection />
       </main>
-    </MotionProvider>
+    </SmoothScrollProvider>
   );
 }
